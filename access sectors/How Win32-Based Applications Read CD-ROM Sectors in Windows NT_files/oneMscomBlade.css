@@ -1,0 +1,609 @@
+﻿.mstHdr
+{
+    width: 960px;
+}
+
+
+.mstHdr .mstHdr_PriRow, .mstHdr .mstHdr_SecRow
+{
+    position: relative;
+    min-height: 26px;
+    _height: 26px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mstHdr .mstHdr_PriRowBg, .mstHdr .mstHdr_SecRowBg
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.mstHdr .mstHdr_PriRow
+{
+    z-index: 998;
+}
+
+.mstHdr .mstHdr_PriRow a
+{
+    text-decoration: none;
+}
+
+
+.mstHdr .mstHdr_SecRow
+{
+    z-index: 996;
+}
+
+.mstHdr .mstHdr_SecRowBg
+{
+    background-color: white; /*<%-- TODO: make configurable? --%>*/
+}
+
+.mstHdr .mstHdr_SecRow, .mstHdr .mstHdr_SecRow a:link, .mstHdr .mstHdr_SecRow a:visited, .mstHdr .mstHdr_SecRow a:active, .mstHdr .mstHdr_SecRow a:hover
+{
+    color: #6a6a6a; /*<%-- TODO: make configurable? --%>*/
+}
+
+
+/*<%-- Header Section Defs --%>*/
+
+.mstHdr .mstHdr_StaticSec11, .mstHdr .mstHdr_StaticSec12, .mstHdr .mstHdr_StaticSec13, .mstHdr .mstHdr_StaticSec14
+{
+    min-height: 1px;
+    _height: 1px;
+}
+
+.mstHdr .mstHdr_StaticSec11
+{
+    width: 89px; /*<%-- TODO: make configurable? --%>*/
+}
+
+.mstHdr .mstHdr_StaticSec12
+{
+    width: 330px; /*<%-- TODO: make configurable? --%>*/
+}
+
+.mstHdr .mstHdr_StaticSec13
+{
+    width: 340px;
+}
+
+.mstHdr .mstHdr_StaticSec14
+{
+    width: 171px;
+}
+
+.mstHdr .mstHdr_StaticSec21
+{
+    width: 100%; /*<%-- TODO: make configurable? --%>*/
+}
+
+
+.mstHdr .mstHdr_MenuItem, .mstHdr .mstHdr_MenuItemSignIn
+{
+    float: left;
+    _width: 0em;
+}
+                
+/*<%-- Menu Links --%>*/
+
+.mstHdr .mstHdr_MenuLink
+{
+    font-size: 62.5%;
+    _font-size:57%;
+}
+
+.mstHdr .mstHdr_MenuLink a
+{
+    display: block;
+    padding: 0 7px;
+}
+
+.mstHdr .mstHdr_MenuLinkTxt, .mstHdr .mstHdr_MenuLinkImg, .mstHdr .mstHdr_MenuLinkDesc
+{
+    float: left;
+}
+
+.mstHdr .mstLcp_DualLangSpan .mstHdr_MenuLinkTxt
+{
+    float: none;
+}
+
+.mstHdr .mstHdr_MenuLinkTxt, .mstHdr .mstHdr_MenuLinkDesc
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    white-space: nowrap;
+}
+
+.mstHdr a:hover .mstHdr_MenuLinkTxt, .mstHdr .selected .mstHdr_MenuLinkTxt, .mstHdr a:hover .mstHdr_MenuLinkDesc, .mstHdr .selected .mstHdr_MenuLinkDesc, .mstHdr span.mstLcp_DualLangSpan a.mstLcp_DualLangLink:hover
+{
+    color: #ffea41; /*<%-- TODO: make configurable? --%>*/
+}
+
+.mstHdr .mstHdr_AnimateDesc .mstHdr_MenuLinkImg .bg-img
+{
+    _display: block;
+}
+
+.mstHdr .mstHdr_AnimateDesc .mstHdr_MenuLinkImg .filter-img
+{
+    _display: none;
+}
+
+.mstHdr .mstHdr_AnimateDesc a:hover .mstHdr_MenuLinkImg .bg-img, .mstHdr .selected .mstHdr_AnimateDesc .mstHdr_MenuLinkImg .bg-img
+{
+    background-position: -15px center;
+}
+
+.mstHdr .mstHdr_StaticSec11 .mstHdr_MenuLinkTxt, .mstHdr .mstHdr_StaticSec13 .mstHdr_MenuLinkImg, .mstHdr .mstHdr_StaticSec14 .mstHdr_MenuLinkImg, .mstHdr .mstHdr_MenuLinkDesc
+{
+    display: none;
+}
+
+.mstHdr .mstHdr_HideMenuLink, .mstHdr .mstHdr_HideMenuLinkImage div.mstHdr_MenuLinkImg, .mstHdr .mstHdr_HideMenuLinkText div.mstHdr_MenuLinkTxt
+{
+    display: none;
+}
+
+.mstHdr .mstHdr_AnimateDesc div.mstHdr_MenuLinkDesc
+{
+    display: block;
+}
+
+
+/*<%-- Header Flyout Defs --%>*/
+
+.mstHdr .mstHdr_FlyoutPos
+{
+    position: absolute;
+    top: 26px;
+    width: 100%;
+    _width: 960px;
+}
+
+.mstHdr .mstHdr_Flyout
+{
+    display: none;
+}
+
+.mstHdr .mstHdr_mstHdr_FlyoutPosShown .mstHdr_Flyout
+{
+    display: block;
+}
+
+.mstHdr .mstHdr_SecRow .mstHdr_Flyout
+{
+    background-color: white; /*<%-- TODO: make configurable? --%>*/
+}
+
+.mstHdr .mstHdr_SecRow .mstHdr_Flyout, .mstHdr .mstHdr_SecRow .mstHdr_Flyout a:link, .mstHdr .mstHdr_SecRow .mstHdr_Flyout a:visited, .mstHdr .mstHdr_SecRow .mstHdr_Flyout a:active, .mstHdr .mstHdr_SecRow .mstHdr_Flyout a:hover
+{
+    color: #6a6a6a; /*<%-- TODO: make configurable? --%>*/
+}
+
+.mstHdr .mstHdr_FlyoutBotStrip
+{
+    width: 100%;
+    height: 5px;
+    background-color: #cccccc;
+}
+
+
+/*<%-- Header LocalePicker Defs --%>*/
+
+div.mstHdr div.mstHdr_MenuItemLcp
+{
+    _width: 100%;
+    *width: auto;
+    _white-space:nowrap;
+    _float: none;
+}
+
+.mstHdr .mstHdr_MenuLinkAnchor
+{
+    _width: 50px;
+}
+ 
+.mstHdr span.mstLcp_DualLangSpan
+{
+    display: block;
+    padding: 6px 0;
+    position: relative;
+}
+
+.mstHdr span.mstLcp_DualLangSpan .mstHdr_MenuLinkTxt
+{
+    padding: 0;
+}
+
+.mstHdr span.mstLcp_DualLangSpan a, .mstHdr span.mstLcp_DualLangSpan .mstLcp_DualLangSep
+{
+    float: left;
+}
+
+.mstHdr span.mstLcp_DualLangSpan .mstLcp_DualLangLink
+{
+    display: block;
+    padding: 0 7px;
+}
+
+
+.mstHdr .mstLcp
+{
+    font-size: 75%;
+    padding: 15px 20px 10px 20px;
+}
+
+/* Lcp Heading */
+
+.mstHdr .mstLcp .mstLcp_Head
+{
+    margin-bottom: 5px;
+}
+
+.mstHdr .mstLcp_Heading h3
+{
+    font-size: 228.57%;
+    font-weight: normal;
+    white-space: nowrap;
+    padding-top: .4em;
+    padding-bottom: 3px;
+}
+
+/* Lcp Column Container */
+
+.mstLcp .mstLcp_LangLinks
+{
+    position: relative;
+    width: 159px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.mstLcp div.mstLcp_LangLinksEmpty
+{
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.mstHdr div.mstLcp div.mstLcp_Cols5
+{
+    width: 100%;
+}
+
+.mstHdr .mstLcp_LangLinks ul.mstLcp_Col
+{
+    width: 179px;
+    min-height: 100%;
+    _height: 100%;
+    _white-space:normal;
+}
+
+.mstLcp .mstLcp_LangLinks a, .mstLcp .mstLcp_WorldwideLink a
+{
+    display: block;
+    padding: 5px;
+}
+
+.mstHdr .mstLcp_LangLinks a:hover, .mstHdr .mstLcp_LangLinks a:active, .mstHdr .mstLcp_WorldwideLink a:hover, .mstHdr .mstLcp_WorldwideLink a:active, .mstHdr .mstLcp_LangLinks a:hover span, .mstHdr .mstLcp_LangLinks a:active span, .mstHdr .mstLcp_WorldwideLink a:hover span, .mstHdr .mstLcp_WorldwideLink a:active span
+{
+    color: #ffea41;
+    text-decoration: none;
+}
+
+.mstLcp .mstLcp_LangLinks li.mstLcp_Hide a:hover, .mstLcp .mstLcp_LangLinks li.mstLcp_Hide a:active
+{
+    background-color: #fff !important;
+}
+
+.mstHdr .mstLcp_WorldwideLink
+{
+    margin-top: 5px;
+    padding-top: 5px;
+    width: 159px;
+}
+
+.mstLcp div.mstLcp_WorldwideLinkEmpty
+{
+    border-top: solid 0px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.mstHdr .mstLcp_WorldwideLink a
+{
+    clear: both;
+    white-space: nowrap;
+}
+
+
+/*<%-- Header LocalePicker Defs --%>*/
+
+.mstHdr .mstHdr_SignInOut
+{
+    font-size: 62.5%;
+}
+
+.mstHdr .mstHdr_SignInOut a#idPPScarab
+{
+    display: block;
+    white-space: nowrap;
+}
+
+.mstHdr .mstHdr_SignInOut span#idSIT, .mstHdr .mstHdr_SignInOut span#idSOT
+{
+    display: block;
+    padding: 6px 7px;
+}
+
+
+.mstHdr .mstHdr_Flyout .mstHdr_ShowFlyoutA .mstHdr_PrdLayoutB, .mstHdr .mstHdr_Flyout .mstHdr_ShowFlyoutB .mstHdr_PrdLayoutA, .mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB
+{
+    display: none;
+}
+
+/* Header Product flyout LayoutA - Section31 */
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31
+{
+    width: 440px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 li
+{
+    padding-bottom: 7px;
+}
+
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Image
+{
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 a.mstHdr_PrdSection31_Image:link, .mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 a.mstHdr_PrdSection31_Image:visited, .mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 a.mstHdr_PrdSection31_Image:active
+{
+    background-color: #CCCCCC;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 a.mstHdr_PrdSection31_Image:hover
+{
+    background-color: #FBFBFB;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Image .mstHdr_PrdSection31_Image_Inner
+{
+    height: 50px;
+    width: 50px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_ImageSize
+{
+    height: 45px;
+    width: 45px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Text a:link, .mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Text a:visited, .mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Text a:active
+{
+    font-family: Segoe UI Light,Tahoma,Arial,Verdana,sans-serif;
+    font-size: 32px;
+    text-decoration: none;
+    color: #DDDDDD;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Text a:hover
+{
+    color: #FFEA41;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32
+{
+    width: 230px;
+    padding-top: 0px;
+}
+
+/* Header Product flyout LayoutA and Layout B - Section32 */
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 li
+{
+    padding-bottom: 5px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 ul
+{
+    padding-bottom: 10px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 ul.first
+{
+    padding-bottom: 0px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupHeader a:link, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupHeader a:visited, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupHeader a:active, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupHeader a:hover
+{
+    font-family: Segoe UI Light,Tahoma,Arial,Verdana,sans-serif;
+    font-size: 26px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    cursor: default;
+    color: #DDDDDD;
+    margin-top: 10px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupItem a:link, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupItem a:visited, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupItem a:active
+{
+    font-family: Segoe UI,Tahoma,Arial,Verdana,sans-serif;
+    font-size: 13px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    color: #BBBBBB;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 .mstHdr_PrdSection32_GroupItem a:hover
+{
+    color: #FFEA41;
+}
+
+/* Header Product flyout LayoutA and LayoutB - Section31 */
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection33
+{
+    width: 230px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 li
+{
+    padding-bottom: 4px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSectio33_Item
+{
+    padding-top: 45px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupHeader a:link, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupHeader a:visited, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupHeader a:active, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupHeader a:hover
+{
+    font-family: Segoe UI Light,Tahoma,Arial,Verdana,sans-serif;
+    font-size: 26px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    cursor: default;
+    color: #DDDDDD;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupItem a:link, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupItem a:visited, .mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupItem a:active
+{
+    font-family: Segoe UI,Tahoma,Arial,Verdana,sans-serif;
+    font-size: 18px;
+    padding-bottom: 0px;
+    text-decoration: none;
+    color: #BBBBBB;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 .mstHdr_PrdSection33_GroupItem a:hover
+{
+    color: #FFEA41;
+}
+
+
+/* Header Product flyout LayoutB - Section31 */
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31
+{
+    width: 460px;
+}
+
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item
+{
+    height: 130px;
+    width: 130px;
+    margin-bottom: 7px;
+    vertical-align: bottom;
+}
+
+.mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item a.blockAnchor:link, .mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item a.blockAnchor:visited, .mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item a.blockAnchor:active
+{
+    background-color: #CCCCCC;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    color: #585858;
+}
+
+.mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item a.blockAnchor:hover
+{
+    background-color: #FBFBFB;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Text
+{
+    margin-bottom: 15px;
+    _margin-bottom: 0;
+    height: 15px;
+    font-size: 11px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Image_Inner
+{
+    width: 130px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 20px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_ImageSize
+{
+    height: 90px;
+    width: 90px;
+}
+
+
+
+/* Header Product flyout LayoutB - Section31 - Home Page */
+
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB .mstHdr_PrdSection31_Item a.blockAnchor .mstHdr_PrdSection31_Text
+{
+    font-family: Segoe UI Bold,Tahoma,Arial,Verdana,sans-serif;
+    padding-top: 45px;
+    font-size: 16px;
+}
+
+.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB .mstHdr_PrdSection31_Item a.blockAnchor
+{
+    color: #DDDDDD;
+}
+
+.mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB .mstHdr_PrdSection31_Item a.blockAnchor:link, .mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB .mstHdr_PrdSection31_Item a.blockAnchor:visited, .mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB .mstHdr_PrdSection31_Item a.blockAnchor:active
+{
+    background-color: #A8A8A8;
+}
+
+.mstHdr .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB .mstHdr_PrdSection31_Item a.blockAnchor:hover
+{
+    background-color: #FBFBFB;
+    color: #585858;
+}
+
+/* Header Product flyout bottom strip */
+.mstHdr .mstHdr_Flyout .mstHdr_PrdBottomStrip
+{
+    width: 100%;
+    height: 5px;
+    display: inline-block;
+    background-color: #CCCCCC;
+    margin-top: 10px;
+}
+
+
+/* Header A/B Testing Styles */
+
+.mstHdr .mstHdr_PriRowB .mstHdr_StaticSec11, .mstHdr .mstHdr_PriRowB .mstHdr_StaticSec14
+{
+    width: 305px;
+}
+
+.mstHdr .mstHdr_PriRowB .mstHdr_StaticSec13
+{
+    display: none;
+}
+
+.mstHdr .mstHdr_PriRowB .mstHdr_StaticSec11 #mthdr02 .mstHdr_HideMenuLink
+{
+    display: block;
+}
+
+ .mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_ImageSize 
+ {
+    *padding-top:2px;
+ }
+ 

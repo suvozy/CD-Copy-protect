@@ -1,0 +1,955 @@
+body 
+{
+    margin:0px;         /*eliminates the interior margin of the page, allowing the elements to bump up flush with the sides*/
+}
+
+/*START Content Area Styling*/
+#gsfx_brnd_CenterContent
+{
+    text-align:center;  /*center content for IE quirksmode ***MUST reset in next element*** */
+    position:relative;  /*need to pass positioning down*/
+    z-index:1;          /*ensure proper layering*/
+    width:100%;         /*fill the screen*/
+}
+
+#gsfx_brnd_PageWrapper 
+{
+    width:984px;        /*CHANGE HERE: Change the width of the frame here.*/
+    text-align:left;    /*properly realign text*/
+    margin:0px auto;    /*also centers content for mozilla, opera and webkit*/    
+	position:relative;  /*need to pass positioning down*/    
+}
+
+#gsfx_brnd_PageContainer 
+{
+    min-height:430px;       /*CHANGE HERE: set minimum height of content*/
+    padding:0px;        /*not neccessary, but good to have*/
+    display:inline-block;      /*allows content for mozilla, opera and webkit to push this container wider and recenter*/
+    position:relative;  /*need to pass positioning down*/
+    width:inherit;      /*must be set for both IE and Non IE to strecth the frame properly*/
+}
+
+#gsfx_brnd_PageHeaderImage
+{
+    position:absolute;  /*remove from the flow of content and not affect anything around*/
+    width:100%;      /*fill the screen*/
+    height:90%;     /*fill minimum screen height*/    
+}
+
+* html #gsfx_brnd_PageHeaderImage
+{
+    height:90%;         /*fixes a bug in IE where the background would go to far down*/
+    width:100%;
+}
+
+/*dont remove this element unless you also reset the margin of the content container to 0px*/
+#gsfx_brnd_ToolbarShadow
+{
+	display:none;
+}
+
+#gsfx_brnd_shadow
+{
+    background:url('/library/images/support/cn/gsfx_brnd_toolbar_shadow.png') repeat-x; /*use pngfilter on this for IE6 and below*/
+    height:14px;        /*matches the height of the image*/
+    line-height:1px;    /*hack for IE to make the height smaller that normal line height*/
+    font-size:1px;      /*hack for IE to make the height smaller that normal line height*/
+    width:100%;
+    z-index:3;
+}
+
+* html #gsfx_brnd_shadow
+{
+    position:absolute;
+}
+
+#gsfx_brnd_ContentContainer 
+{
+	background-color:#ffffff;    
+    width:100%;         /*fill the container width*/
+	padding:0px;        /*CHANGE HERE: This should match the desired width of the border minus the width of the css border*/
+	position:inherit;   /*This needs to be set to inherit or items are not clickable in IE for some reason*/
+	z-index:2;	        /*ensure proper layering*/
+}
+
+#contentArea 
+{
+    /*TODO: This may need to be configurable*/  
+    background:#FFFFFF;
+	border-bottom:1px solid #000000;	
+    display:table; /*needed by mozilla and webkit to properly stretch the framework*/
+    width:100%;         /*fill the container*/
+	position:relative;  /*need to pass positioning down*/
+	z-index:2;          /*ensure proper layering*/
+}
+
+#gsfx_brnd_WidthFix 
+{
+    width:612px;        /*CHANGE HERE: Change this value to change the minimum width*/
+    height:0px;         /*make 0px high*/
+    line-height:0px;    /*make 0px high*/
+    font-size:0px;      /*make 0px high*/
+}
+
+.gsfx_brnd_SideBorder 
+{
+	border-left:1px solid #000000; /*CHANGE HERE: If you want different color borders for the frame*/
+	border-right:1px solid #000000;	/*CHANGE HERE: If you want different color borders for the frame*/
+}
+.gsfx_brnd_TransBG 
+{
+	margin:0px;
+}
+/*END Content Area Styling*/
+
+/*START Corner And Border Styling*/
+.gsfx_brnd_CornerContainer 
+{	
+	line-height:1px;    /*this is for IE to reduce hieght to less than the standard line-height (usually 1em)*/ 
+	font-size:0px;      /*this is for IE to reduce hieght to less than the standard line-height (usually 1em)*/ 
+	height:0px;         /*CHANGE HERE: this should match the hieght of the the top and bottom borders*/	
+	width:100%;	
+	position:relative;  /*not neccessary, but good to have*/
+	z-index:1;
+}
+#gsfx_brnd_TopCorners 
+{
+	display:none;
+}
+#gsfx_brnd_BottomCorners 
+{
+	display:none;
+}
+
+.gsfx_brnd_TBBorders 
+{
+	width:100%;	
+}
+#gsfx_brnd_TopBorder 
+{
+    border-top:1px solid #85A1B9;/*CHANGE HERE: If you want different color borders for the frame*/
+}
+#gsfx_brnd_BottomBorder 
+{
+    border-bottom:1px solid #000000;/*CHANGE HERE: If you want different color borders for the frame*/
+}
+
+.gsfx_brnd_Corner 
+{
+    /*CHANGE HERE: Change the width, hight, left and margin-top value if you wish to have*/
+    /*a different size corner on your frame, will affect all four corners*/
+	float:right;
+	height:6px;
+	width:6px; 
+	position:relative;  /*this is necessary to allow the element to move*/
+	left:6px;           /*this needs to match this elements width*/
+	margin-top:-6px;    /*this needs to match this elements height*/
+}
+#gsfx_brnd_LUpperCorner 
+{
+    /*CHANGE HERE: If you want different corners for the frame. Dont forget to change it in the brandingPngFilter.css as well*/
+    background:url('/library/images/support/cn/gsfx_brnd_trcorner.png') no-repeat;
+}
+#gsfx_brnd_LLowerCorner 
+{
+    /*CHANGE HERE: If you want different corners for the frame. Dont forget to change it in the brandingPngFilter.css as well*/
+    background:url('/library/images/support/cn/gsfx_brnd_brcorner.png') no-repeat;
+}
+/*END Corner And Border Styling*/
+
+/*START Header, Footer and Local Tool Bar*/
+#gsfx_brnd_HeaderContainer, #gsfx_brnd_FooterContainer 
+{
+    width:100%;
+    position:relative;
+}
+
+#gsfx_brnd_HeaderContainer
+{
+    z-index:4;
+}
+
+#gsfx_brnd_FooterContainer 
+{
+    z-index:1;
+}
+
+.gsfx_brnd_NetworkLinkContainer 
+{
+    padding:0px 5px;
+    white-space:nowrap;
+}
+
+a.gsfx_brnd_NetworkLink, a.gsfx_brnd_NetworkLink:visited,
+.gsfx_brnd_NetworkLink a, .gsfx_brnd_NetworkLink a:visited 
+{    
+    padding-bottom:1px;
+    height:100%;
+    color:#cdcbce;
+    text-decoration:none;
+}
+
+a.gsfx_brnd_NetworkLink:hover, a.gsfx_brnd_NetworkLink:active, a.gsfx_brnd_NetworkLink:focus,
+.gsfx_brnd_NetworkLink a:hover, .gsfx_brnd_NetworkLink a:active, .gsfx_brnd_NetworkLink a:focus 
+{
+    color:#f9d060;
+    text-decoration:none;
+    padding-bottom:0px;
+    border-bottom:1px dotted #f9d060;
+}
+
+#gsfx_brnd_NetworkHeaderLinks td
+{
+    height:.9em;     
+}
+
+#gsfx_brnd_NetworkFooter td 
+{
+    height:.9em;
+    font-size:80%;  
+}
+
+#gsfx_brnd_NetworkHeaderLinks td span
+{
+    height:100%;
+}
+
+.gsfx_brnd_HeaderSeperator, .gsfx_brnd_FooterSeperator 
+{
+    color:#68686a;    
+    font-weight:bold;
+}
+
+/*reverse these for RTL content*/
+.gsfx_brnd_NetworkLeft 
+{
+    float:left;
+    left:0px;
+    right:auto;
+}
+
+.gsfx_brnd_NetworkRight 
+{
+    float:right;
+    left:auto;
+    right:0px;
+}
+
+.gsfx_brnd_FooterLinks .gsfx_brnd_NetworkRight, #gsfx_brnd_FooterContainer .gsfx_brnd_NetworkLeft
+{
+    clear:both;
+}
+
+.gsfx_brnd_NetworkTextRight
+{
+    text-align:right;
+}
+
+/*The following lines are used to remove the book icon at the side of Passport signin/signout button */
+#idSI{display:none;}
+#idSO{display:none;}
+
+/*START Header*/
+#gsfx_brnd_NetworkHeader 
+{
+    color:#fff;
+    font-size:70%;
+    width:100%;
+    position:relative;
+    z-index:2;
+    padding:0px 2px;
+    height:25px;
+}
+
+#gsfx_brnd_NetworkHeader span 
+{
+    font-weight:bold;
+}
+
+#gsfx_brnd_NetworkHeader a span 
+{
+    font-weight:normal;
+}
+
+#gsfx_brnd_CorpMarketingContainer 
+{
+    position:absolute;
+    width:400px;
+    height:25px;
+}
+
+#gsfx_brnd_CorpMarketingSpace
+{
+    margin:0px 8px;
+    position:absolute;
+    height:41px;
+    padding:0px 25px;
+}
+
+#gsfx_brnd_corpflyoutad, #gsfx_brnd_corpflyoutad_inner
+{
+    position: absolute;
+    overflow: hidden;
+    height: 0px;
+    width: 0px;
+    top: 0px;
+    left: 0px;
+}
+
+#gsfx_brnd_corpflyoutad
+{
+    margin-top:-1px;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+
+#gsfx_brnd_corpflyoutad_close
+{
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+#gsfx_brnd_corpflyoutad_dontshow
+{
+    position: absolute;
+    bottom: 8px;
+    left: 20px;
+}
+
+#gsfx_brnd_CorpMarketingSpace div.gsfx_brnd_NetworkLink img
+{
+    display:inline;
+    vertical-align:middle;
+}
+
+#gsfx_brnd_CorpMarketingSpace div.gsfx_brnd_NetworkLink span
+{    
+    vertical-align:middle;
+    font-weight:normal;    
+    padding:6px 4px 0px 4px;
+}
+
+#gsfx_brnd_NetworkHeaderLinks 
+{
+    border-collapse:collapse;
+    margin:8px 4px 0;
+}
+
+#gsfx_brnd_SiteHeader 
+{
+    width:100%;
+    min-height:61px;
+    position:relative;
+    z-index:1;
+    padding-top:10px;
+    border-bottom:1px solid #000000;
+}
+
+#gsfx_brnd_SiteHeaderImageContainer
+{
+	line-height:0px;    /*this is for IE to reduce hieght to less than the standard line-height (usually 1em)*/
+	font-size:0px;      /*this is for IE to reduce hieght to less than the standard line-height (usually 1em)*/
+	height:72px;        /*CHANGE HERE: this should match the hieght of the siteheader*/
+	width:100%;
+	position:absolute;
+	left:0px;
+	margin-top:-10px;
+	padding:0px;	
+	z-index:1;
+}
+
+#gsfx_brnd_SiteHeaderImage
+{
+    width:100%;
+    position:absolute;    
+}
+
+#gsfx_brnd_SiteImgWedgeWrap
+{
+    position:absolute;
+    left:0px;
+    width:100%;
+    padding:0; 
+    z-index:1;  
+}
+
+.gsfx_brnd_siteheaderimage
+{
+    position:relative;
+    float:left;
+    z-index:2;
+    margin:0px 0px 1px 0px; /*hack for IE and is floating bugs, if this isnt there, ie puts a space between the floated images*/
+}
+
+#gsfx_brnd_SiteImgRight
+{
+    float:right;
+    margin-right:1px;
+}
+
+* html #gsfx_brnd_SiteImgLeft,
+* html #gsfx_brnd_SiteImgMain
+{
+    margin-left:-4px;
+}
+
+#gsfx_brnd_PageLogoWrapper 
+{
+    padding:0px 12px;
+    white-space:nowrap;
+    position:relative;
+	z-index:2;    
+}
+
+#gsfx_brnd_legacy_PageLogo 
+{
+    height:100%;
+    width:100%;
+    position:absolute;
+    margin:0px 12px;
+}
+
+#gsfx_brnd_PageLogoLink
+{
+    vertical-align:middle;
+    text-decoration:none;
+}
+
+#gsfx_brnd_PageLogo 
+{
+    vertical-align:middle;
+}
+
+#gsfx_brnd_PageTitle
+{
+    vertical-align:middle;
+    color:#fff;
+    font-size:22pt;
+}
+
+#gsfx_brnd_SearchWrapper
+{
+    position:relative;
+    margin:0px 10px;
+    margin-top:-9px;
+	z-index:2;    
+}
+
+#frmsrch
+{
+    display:inline;
+}
+
+#gsfx_bsrch_divQuery
+{
+	height:24px;
+	/*border:solid 1px #336b95;*/
+	margin:5px 0px 5px 5px;
+	background-color:#ffffff;
+	float:left;
+	display:inline;
+	position:relative;
+}
+#gsfx_bsrch_options_subcntr
+{
+	background:#ffffff url('/library/images/support/cn/ss_section2.png') left top no-repeat;
+	border:solid 1px #336b95;
+	border-top:0px;
+	font-size:0.7em;
+	/*height:65px;*/
+	line-height:18px;
+	padding:6px 0px;
+	position:absolute;
+	width:100%;
+}
+#gsfx_bsrch_options
+{
+	background-color:#ffffff;
+	float:left;
+	position:absolute;
+	display:none;
+	color:Black;
+	height:1px;	
+}
+.gsfx_bsrch_chkimg
+{
+	/*visibility:hidden;*/
+	display:none;
+	margin:4px;
+}
+.gsfx_bsrch_container
+{
+    width:375px;
+    height:32px;
+    background:url('/library/images/support/cn/ss_live_glass_border.png') right no-repeat;
+    float:right;
+    margin:15px 2px;
+    position:relative;
+}
+div.gsfx_srchoptimg_cotnr, div.gsfx_catoptimg_cotnr
+{
+	display:block;
+	margin:2px 2px 2px 1px;
+	float:left;
+	width:15px;
+}
+#gsfx_cat_sel_cntnr
+{
+	background-color:#ffffff;
+	border:solid 1px #336b95;
+	color:black;
+	display:none;
+	font-size:0.7em;
+	line-height:18px;
+	padding:4px 1px;
+	position:absolute;
+	right:-1px;
+}
+.gsfx_optsub_cotnr
+{
+	cursor:pointer;
+	display: block;
+	float:left;
+	width:100%;
+}
+.gsfx_srchsitename_cotnr
+{
+	display: inline;
+	float:left;
+	font-size:11px;
+	white-space:pre-wrap;
+	width:270px;
+}
+.gsfx_catopttxt_cotnr
+{
+	display: inline;
+	float:left;
+	font-size:11px;
+	overflow:hidden;
+	width:150px;
+}
+
+#gsfx_bsrch_logo_div
+{
+	display:inline;
+	float:right;
+	margin-right:6px;
+	margin-top:9px;
+	position:relative;
+}
+#gsfx_bsrch_logo
+{
+	vertical-align:middle;
+	cursor:pointer;
+}
+
+#gsfx_bsrch_btnimg
+{
+	height:20px;
+	width:20px;
+	vertical-align:middle;
+	margin: 0px;
+	cursor:pointer;
+}
+#gsfx_cat_sel
+{
+	height:24px;
+	width:13px;
+	margin-top:5px;
+	margin-right:5px;
+	float:left;
+	position:relative;
+	cursor:pointer;
+}
+* html #gsfx_bsrch_query
+{
+    vertical-align:bottom;
+    height:1.7em;
+}
+
+#gsfx_bsrch_divQuery #gsfx_bsrch_query
+{
+    display:inline;
+    font-size:11px;
+    height:18px;
+    margin:1px 0px 1px 2px;
+    border:0px;
+    vertical-align:middle;
+    padding:1px;
+}
+
+.siteseltxt
+{
+	font-style:italic;
+	color:#aaaaaa;
+}
+
+.gsfx_bsrch_buttonwrap
+{
+    border:1px solid #000000;
+	background-color:#fff;
+    font-size:.7em;
+}
+
+.gsfx_bsrch_buttonwrap input
+{
+    background:none;
+    border:0px;
+}    
+
+* html .gsfx_bsrch_buttonwrap
+{
+    padding:0px;
+    height:1.7em;
+    margin-top:1px;
+    padding-top:1px;
+}
+
+#gsfx_bsrch_srch
+{
+    border-left:0px;
+}
+
+#gsfx_bsrch_poweredbycell
+{
+    margin-top:1px;
+    padding:2px 0px;
+}
+
+#gsfx_bsrch_poweredbycell span 
+{
+    font-size:7pt;
+    text-align:right;
+}
+
+#gsfx_bsrch_poweredbycell img, 
+#gsfx_bsrch_poweredbycell div
+{
+    vertical-align:middle;
+    margin:0px 2px;
+}
+/*END Header*/
+
+/*START Footer*/
+#gsfx_brnd_FooterContainer 
+{
+    height:50px; 
+}
+
+#gsfx_brnd_SiteFooter 
+{
+    color:#ffffff;
+    font-size:14pt;
+    height:40px;
+    width:230px;
+    line-height:40px;
+    margin-left:10px;
+    margin-right:20px;
+    padding-top:5px;
+    text-align:left;
+    white-space:nowrap;    
+}
+
+#gsfx_brnd_SiteFooter .gsfx_div_png
+{
+    line-height:normal;
+}
+
+#gsfx_brnd_NetworkFooter span
+{
+    color:#fff;
+}
+
+#gsfx_brnd_copyright_container 
+{
+    padding-top:6px;
+    margin-left:11px;
+    width:100px;
+    height:100%;
+    position:relative;
+}
+
+#gsfx_brnd_MSLogo, 
+#gsfx_brnd_MSLogoPrint
+{
+    position:relative;
+}
+
+#gsfx_brnd_legacy_MSLogo 
+{
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0px;
+    left:0px;    
+    float:left;
+}
+
+#gsfx_brnd_NetworkFooter td
+{
+    white-space:nowrap;
+}
+
+/*END Footer*/
+
+/*START LocalToolBar*/
+#gsfx_brnd_LocalToolBar 
+{
+    width:100%;
+    padding:0px;
+    z-index:3;
+}
+
+#gsfx_brnd_LocalLinks 
+{
+	margin:0px;
+	position:relative;
+	height:37px;
+	background-color: #000;
+	background-image: url(/library/images/support/cn/topnav_bkgnd.png);
+	background-repeat: repeat-x;
+	background-position: left center;
+	padding-top: 0px;
+	padding-right: 5px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+}
+
+#gsfx_brnd_LocalLinks li
+{
+    position:relative; /*IE6 Unclickable Link Hack*/
+	line-height:37px;
+    display:inline;
+    float:left;
+    color:#fff; 
+    font-size:70%;
+}
+
+#gsfx_brnd_LocalLinks .gsfx_brnd_LocalSeperator
+{
+	background-image: url(/library/images/support/cn/topnav_section.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 5px;
+	padding: 0px;
+}
+
+#gsfx_brnd_LocalLinks a 
+{
+    float:left;
+    display:block;
+    color:#fff; 
+    text-decoration:none;
+	text-align:center;
+	padding-left: 10px;
+}
+
+#gsfx_brnd_LocalLinks a span
+{
+    height:100%;
+    float:left;
+    padding:0 20px 0 10px;
+}
+
+#gsfx_brnd_LocalLinks .gsfx_brnd_LocalLinkSelected a
+{
+	background-image: url(/library/images/support/cn/topnav.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+}
+
+#gsfx_brnd_LocalLinks .gsfx_brnd_LocalLinkSelected a span
+{
+	cursor:hand;
+	background-image: url(/library/images/support/cn/topnav.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+
+#gsfx_brnd_LocalLinks a:hover
+{
+	background-image: url(/library/images/support/cn/topnav.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+#gsfx_brnd_LocalLinks a:hover span
+{
+	cursor:hand;
+	background-image: url(/library/images/support/cn/topnav.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+}
+/*END LocalToolBar*/
+/*END Header, Footer and Local Tool Bar*/
+
+/*START Left Nav*/
+#leftColumn 
+{
+    width:182px;
+}
+
+#gsfx_lnav_LeftNav
+{
+    padding-top:5px;
+    font-size:70%;
+    background:url('/library/images/support/cn/gsfx_lnav_bgrd.gif') repeat-y;
+}
+
+#gsfx_lnav_LeftNav ul
+{
+    margin:0px;
+    padding:0px 2px;
+}
+
+#gsfx_lnav_LeftNav li 
+{
+    position:relative;
+    display:inherit;
+    list-style-type:none;
+    margin:0px 0px;
+    padding:1px 0px;
+    height:100%;
+    width:100%;
+}
+
+#gsfx_lnav_LeftNav li ul 
+{
+	position:absolute;
+	visibility:hidden;
+	left:100%;
+	margin:-4px -6px;
+	padding:3px 0px;
+	display:inherit;
+	border:1px solid #C5DAE8;
+	background:#EBF4FA;
+	white-space:nowrap;
+}
+
+#gsfx_lnav_LeftNav li ul li ul
+{
+    margin-left:0px;
+    margin-right:0px;
+}
+
+#gsfx_lnav_LeftNav li ul li a
+{
+    padding-right:25px;
+}
+
+#gsfx_lnav_LeftNavBottom 
+{
+    background:url('/library/images/support/cn/gsfx_lnav_bgrd_end.png') no-repeat top right;
+    width:182px;
+    height:70px;
+}
+
+#gsfx_lnav_LeftNav .gsfx_lnav_title {
+    font-weight:bold;
+    color:#000000;
+    padding:0px 4px;
+}
+
+#gsfx_lnav_LeftNav a 
+{
+    color:#07679A; 
+    text-decoration:none;
+    padding:2px 4px;
+    margin:0px 4px;
+    display:inherit;
+    display:block;
+    background:url('/library/images/support/cn/gsfx_lnav_highlight.gif') no-repeat -25px 0px;    
+}
+
+.gsfx_lnav_menulink
+{
+    height:100%;
+    width:10px;
+    right:5px;
+    position:absolute;
+    margin:0px 0px;
+    background:url('/library/images/support/cn/gsfx_lnav_flyout_arrow_left.gif') no-repeat 0px 3px;
+}
+
+#gsfx_lnav_LeftNav li ul li a .gsfx_lnav_menulink
+{
+    right:1px;
+}
+
+#gsfx_lnav_LeftNav a:hover, #gsfx_lnav_LeftNav li.gsfx_lnav_submenu li.gsfx_lnav_nomenu a:hover
+{
+    background:url('/library/images/support/cn/gsfx_lnav_highlight.gif') repeat-x bottom;
+    padding:1px 3px;
+    border:1px solid #ACE0F8;
+}
+
+#gsfx_lnav_LeftNav li.gsfx_lnav_submenu ul li.gsfx_lnav_nomenu a:hover,
+#gsfx_lnav_LeftNav li.gsfx_lnav_submenu ul li.gsfx_lnav_submenu a:hover
+{
+    padding-right:24px;
+}
+
+#gsfx_lnav_LeftNav .gsfx_lnav_lncenter 
+{
+    text-align:center;
+}
+
+#gsfx_lnav_LeftNav .gsfx_lnav_upmenu ul, #gsfx_lnav_LeftNav .gsfx_lnav_dropmenu .gsfx_lnav_upmenu ul
+{
+    visibility:hidden;
+    display:none;
+}
+
+#gsfx_lnav_LeftNav .gsfx_lnav_dropmenu ul
+{    
+    visibility:visible;
+    display:block;
+}
+
+#gsfx_lnav_LeftNav .gsfx_lnav_iframeMatte
+{
+    position:absolute;
+    top:-1px;
+    left:-1px;
+    filter:progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0);
+}    
+/*END Left Nav*/
+
+/*MEDIA PRINT*/
+#gsfx_brnd_MSLogoPrint
+{
+    display:none;
+    margin-bottom:10px;
+}
+@media print
+{   
+    .gsfx_brnd_CornerContainer, #gsfx_brnd_LocalToolBar, #gsfx_brnd_ToolbarShadow, 
+    #gsfx_brnd_FooterLinkContainer, #gsfx_brnd_HeaderContainer, #gsfx_brnd_PageHeaderImage, 
+    #gsfx_brnd_SiteHeaderImageContainer, #gsfx_brnd_MSLogo, #gsfx_brnd_legacy_MSLogo,
+    #gsfx_brnd_SiteHeader
+    {
+        display:none!important;
+    }
+
+    #tocDiv *, #gsfx_brnd_MSLogoPrint
+    {
+        display:block!important;
+    }
+
+    #gsfx_brnd_PageWrapper
+    {
+        width:auto;
+    }
+    
+    #gsfx_brnd_ContentContainer
+    {
+        padding:0px;
+    }
+    
+    .gsfx_brnd_SideBorder
+    {
+        border:0px;
+    }
+}
+/*End Media Print*/

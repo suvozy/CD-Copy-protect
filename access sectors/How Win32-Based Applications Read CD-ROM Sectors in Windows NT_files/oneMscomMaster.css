@@ -1,0 +1,161 @@
+﻿html, body, form, div {
+    margin: 0; padding: 0;
+
+}
+
+.cssClear {
+    clear: both;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    _line-height: 0;
+}
+
+/* Backwards compat */
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+img { 
+    border: none;
+}
+
+/* Authoring Toolbar */
+#roottoolbar {
+    font-size: 70%;
+}
+
+/* Background */
+html, body {
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 25px;
+    _height: 400px;
+}
+
+div.form-bottom {
+    position: relative;
+}
+
+div.form-bottom-inner {
+    position: absolute;
+    top: -400px;
+    width: 100%;
+    min-width: 960px;
+    height: 400px;
+}
+
+/* Content */
+div.stage {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 960px;
+}
+
+div.stage {
+    _height: 100%; /* IE 6 */
+}
+
+div.stage-bg-bot {
+    _height: 100%; /* IE 6 */
+}
+
+div.stage-content {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div.stage-bg-top {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    height: 85px;
+    width: 100%;
+}
+
+div.stage-bg-mid {
+    position: absolute;
+    z-index: -1;
+    top: 85px;
+    height: 345px;
+    width: 100%;
+}
+
+div.stage-bg-bot {
+    position: absolute;
+    z-index: -1;
+    top: 430px;
+    bottom: 0;
+    width: 100%;
+}
+
+div.utility-bar {
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 999;
+}
+
+div.main-brand {
+    margin-bottom: 10px;
+}
+
+div.main-brand img
+{
+    border: none;
+}
+
+div.main-brand .logo .bg-img, div.main-brand .logo .filter-img {
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+div.main-brand .logo .bg-img
+{
+    background-repeat:no-repeat;
+}
+    
+.main-brand span.beta {
+    color: #fff;
+    position: relative;
+    top: 16px;
+}
+
+div.search-navigation {
+    z-index: 990;
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    margin-bottom: 20px;
+}
+
+div.search-navigation-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+div.main-content {
+    min-height: 555px;
+    _height: 555px;
+    margin-bottom: 20px;
+}
+
+div.footer {
+    min-height: 50px;
+    _height: 50px;
+    _width: 100%;
+    clear: both;
+}
+
+div.main-brand .brandLogoTextCell
+{
+    vertical-align:bottom;
+}

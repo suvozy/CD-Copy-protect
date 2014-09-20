@@ -1,0 +1,144 @@
+﻿.primaryTable .gss_rightnav_withshadow #thinColumn
+{
+    overflow:visible;
+}
+
+.gss_rightnav_withshadow
+{
+    width:181px!important;
+    padding-left:10px;
+    background:url('/library/images/support/cn/gss_sticky_panel_outline.png') repeat-y top left;
+}
+
+
+#thinColumn #gss_sticky_container_div
+{    
+    position:relative;
+    left:-10px;
+    overflow:visible;
+    width:186px;
+    padding:0px 0px;
+    margin-top:10px;
+    margin-bottom:6px;
+    margin-left: -1px;
+    _margin-right: -6px;
+    border-left: solid 2px white;
+}
+
+#thinColumn .gss_stickywebpart_div .textColumn h1
+{
+	margin-bottom: 4px;
+}
+
+#thinColumn .gss_stickywebpart_div .textColumn ul li 
+{
+    padding-left: 0px;
+}
+
+#thinColumn .gss_stickywebpart_div .textColumn ul li span
+{
+    vertical-align:top;
+}
+
+#thinColumn .gss_stickywebpart_div h1 .linkCon
+{
+    color:#022d4d;
+}
+
+#thinColumn .gss_stickywebpart_div .gss_stickytitle_img
+{
+    float:left;
+}
+#thinColumn .gss_stickywebpart_div .gss_stickytitle_span
+{
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    padding: 0 4px 0 8px;
+    *display: block;
+    *padding: 15px 4px 0 8px;
+}
+#thinColumn #gss_sticky_container_div #gss_stickyinner_div
+{
+    background:url('/library/images/support/cn/gss_sticky_panel_shadow.png') repeat-y top right;
+    background-position: 6px top;
+    width: 191px;
+    position: relative;
+    margin-left: -7px;
+    margin-top: -12px;
+    overflow: hidden;
+}
+
+.gss_stickywebpart_div
+{
+    position: relative;
+    z-index: 2;
+    padding-top: 10px;
+}
+
+.gss_stickywebpart_div h6
+{
+    margin:0;
+    font-size:70%;
+    color:#003366;
+}
+
+.gss_stickywebpart_div .gss_stickytitle_div
+{
+    width:191px;
+    margin-left: 0px;
+    _margin-left: -2px;
+}
+
+#thinColumn .gss_stickywebpart_div .textColumn h1,
+#thinColumn .gss_stickywebpart_div h1 .linkConTop
+{
+    background:none;
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+}
+
+#thinColumn .gss_stickywebpart_div ul
+{
+    padding-left: 26px;
+    font-size:66%;
+}
+
+#gss_stickyheader_img
+{
+	margin-left: -1px;
+	width: 185px;
+	height: 15px;
+}
+
+#gss_stickywatermark_img
+{
+	margin-top: -107px;
+	margin-left: 1px;
+	position: relative;
+	z-index: 1;
+	width: 185px;
+	height: 107px;	
+	left: 6px;
+}
+
+#gss_stickyfooter_img
+{
+	margin-left: -1px;
+	z-index: 1;
+	width: 185px;
+	height: 4px;	
+	left: 6px;
+}
+
+
+#thinColumn .gss_stickywebpart_bottom_div
+{
+	padding-bottom: 10px;
+}
+.gss_stickywebpart_div #RelatedContent,
+.gss_stickywebpart_div #RelatedTags
+{
+    clear: both;    
+}

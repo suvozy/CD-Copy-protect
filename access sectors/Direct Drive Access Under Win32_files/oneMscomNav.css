@@ -1,0 +1,364 @@
+﻿.oneMscomNav div.navMenu {
+    position: relative;
+    width: 100%;
+    z-index: 994;
+    font-size: 100%;
+}
+
+.oneMscomNav div.navigation-4level-strip {
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 30px;
+    display: none;
+}
+
+div.oneMscomNav .navigation-section {
+    display: inline-block;
+}
+
+div.oneMscomNav .navigation-item {
+    padding: 0px 6px 0px 6px;
+}
+
+div.oneMscomNav .navigation-item-tab a {
+    display: inline-block;
+}
+
+div.oneMscomNav a:hover span {
+    text-decoration: underline;
+}
+
+div.oneMscomNav .Menu-label a:hover span {
+    text-decoration: none;
+}
+
+div.oneMscomNav a:hover {
+    text-decoration: underline;
+}
+
+div.oneMscomNav .Menu-label a:hover {
+    text-decoration: none;
+}
+
+div.oneMscomNav .Group-label a:link,
+div.oneMscomNav .Group-label a:visited,
+div.oneMscomNav .Group-label a:active,
+div.oneMscomNav .Group-label a:hover {
+    text-decoration: none;
+    cursor: text;
+}
+
+div.oneMscomNav .navigation-item-tab .navigation-item-tab-text,
+div.oneMscomNav .navigation-item-tab a#idPPScarab {
+    padding: 3px 15px 3px 15px;
+}
+
+div.oneMscomNav .navigation-item-tab .navigation-item-text {
+    display: block;
+    float: Left;
+}
+
+div.oneMscomNav .navigation-item-tab .navigation-item-img {
+    float: Left;
+    height: 25px;
+}
+
+div.oneMscomNav .navigation-item-tab .navigation-flyout-arrow {
+    display: block;
+    float: Left;
+    margin-top: 9px;
+    width: 9px;
+    height: 5px;
+    overflow: hidden;
+}
+
+div.oneMscomNav .navigation-item-tab .navigation-item-tab-text .navigation-flyout-arrow {
+    margin-top: 4px;
+}
+
+div.oneMscomNav .selected a .navigation-flyout-arrow {
+    background-position: 0 -6px;
+}
+
+div.oneMscomNav .navigation-item-flyout {
+    position: relative;
+    z-index: 995;
+}
+
+div.oneMscomNav .navigation-item-flyout-content {
+    position: absolute;
+    top: -1px;
+    border: #a3a3a3 0px solid;
+    display: none;
+    z-index: 99;
+}
+
+div.oneMscomNav div.navigation-item-flyout-content-shown {
+    display: block;
+}
+
+div.oneMscomNav h3 {
+    font-size: 120%;
+    border-bottom: solid 1px #e1e1e1;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+}
+
+/* sub navigation */
+
+.oneMscomNav div.navigation-sub {
+    font-size: 90%;
+    display: block;
+    width: 100%;
+}
+
+div.navigation-sub .navigation-sub-item {
+    padding: 0px 5px 0px 5px;
+}
+
+div.navigation-sub .navigation-sub-item-tab a {
+    display: block;
+}
+
+div.navigation-sub .navigation-sub-item-tab .navigation-sub-item-tab-text,
+div.navigation-sub .navigation-sub-item-tab a#idPPScarab {
+    padding: 3px 10px 3px 10px;
+}
+
+div.navigation-sub .navigation-sub-item-tab .navigation-sub-item-text {
+    display: block;
+    float: Left;
+}
+
+div.navigation-sub .navigation-sub-item-tab .navigation-sub-item-img {
+    float: Left;
+    height: 25px;
+}
+
+div.navigation-sub .navigation-sub-item-tab .navigation-sub-flyout-arrow {
+    display: block;
+    float: Left;
+    margin-top: 9px;
+    width: 9px;
+    height: 5px;
+    overflow: hidden;
+}
+
+div.navigation-sub .navigation-sub-item-tab .navigation-sub-item-tab-text .navigation-sub-flyout-arrow {
+    margin-top: 4px;
+}
+
+div.navigation-sub .selected a .navigation-sub-flyout-arrow {
+    background-position: 0 -6px;
+}
+
+div.navigation-sub .navigation-sub-item-flyout {
+    position: relative;
+}
+
+div.navigation-sub .navigation-sub-item-flyout-content {
+    position: absolute;
+    top: -1px;
+    border: #a3a3a3 1px solid;
+    display: none;
+}
+
+div.navigation-sub div.navigation-sub-item-flyout-content-shown {
+    display: block;
+}
+
+div.navigation-sub h3 {
+    font-size: 120%;
+    border-bottom: solid 1px #e1e1e1;
+}
+
+div.oneMscomNav .navigation-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+div.oneMscomNav .selected .navigation-item-tab {
+    z-index: 100;
+    border-width: 1px 1px 0px 1px;
+    border-style: solid;
+}
+
+div.oneMscomNav .navigation-item-tab a {
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+}
+
+div.oneMscomNav .selected .navigation-item-tab a {
+    border-width: 0px;
+}
+
+div.oneMscomNav .navigation-item-tab a:hover {
+    cursor: pointer;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level2 {
+    padding: 12px 10px 12px 10px;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level2 .links {
+    float: left;
+}
+
+div.oneMscomNav .navigation-item-flyout .vertical_split {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    height: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+div.oneMscomNav .navigation-item-flyout .links {
+    overflow: hidden;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a,
+div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:link,
+div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:visited,
+div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:active,
+div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:hover {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    display: block;
+    line-height: 1.3;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 {
+    padding: 8px 10px 8px 10px;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links {
+    float: left;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .first {
+    margin-top: 4px;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .last {
+    margin-bottom: 4px;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:link,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:visited,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:hover,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:active {
+    font-weight: bold;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:hover {
+    text-decoration: underline;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a.link-label:hover {
+    text-decoration: none;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .link-group {
+    padding-top: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+div.oneMscomNav .link-group-bottom-border {
+    padding-bottom: 3px;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:link,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:visited,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:active,
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:hover {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    display: block;
+    line-height: 1.3;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a {
+    line-height: 1.3;
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .first {
+    /*margin-top:4.5px;*/
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .last {
+    /*margin-bottom:12.5px;*/
+}
+
+div.oneMscomNav .navigation-item-flyout .navigation-level4 {
+    width: 960px;
+}
+
+div.navigation-sub .navigation-sub-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+div.navigation-sub .selected .navigation-sub-item-tab {
+    z-index: 100;
+    border-width: 0px 1px 0px 1px;
+    border-style: solid;
+}
+
+div.navigation-sub .navigation-sub-item-tab a:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+div.oneMscomNav .navigation-sub-item-flyout .navigation-sub-level3 {
+    padding: 14px 10px 10px 10px;
+}
+
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 {
+    white-space: nowrap;
+}
+
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:link,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:visited,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:hover,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:active {
+    font-weight: bold;
+}
+
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:link,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:visited,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:hover,
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:active {
+    padding-bottom: 10px;
+}
+
+div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links {
+    padding-top: 10px;
+}
+
+div.oneMscomNav div.navigation-flyout-region,
+div.navigation .navigation-section {
+    direction: ltr;
+}

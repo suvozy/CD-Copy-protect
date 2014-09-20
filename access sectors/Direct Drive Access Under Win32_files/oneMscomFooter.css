@@ -1,0 +1,59 @@
+﻿.oneMscomFooter .subBrandLogo
+{
+    overflow: visible;
+}
+
+.oneMscomFooter .msLogo
+{
+    position: relative;
+    padding-bottom: 7px;
+    padding-top: 11px;
+}
+
+.oneMscomFooter .msLogo a
+{
+    display: block;
+}
+
+.oneMscomFooter .msLogo a:hover
+{
+    text-decoration: none;
+}
+
+.oneMscomFooter .copyright
+{
+    margin-top: 4px;
+    font-size: 55%;
+}
+
+.oneMscomFooter .links
+{
+    padding-top: 10px;
+}
+
+.oneMscomFooter .links-inner
+{
+    padding-top: 3px;
+    clear: both;
+}
+
+.oneMscomFooter ul li
+{
+    display: inline;
+    float: left;
+    padding: 0 8px;
+    border-right: solid 1px transparent;
+    font-size: 70%;
+}
+
+.oneMscomFooter ul li.lastLink
+{
+    border-right: 0;
+}
+
+.oneMscomFooter .altText
+{
+    width: 133px;
+    padding-top: 6px;
+    padding-bottom: 3px;
+}

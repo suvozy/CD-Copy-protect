@@ -1,0 +1,1459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en-US"><head><title>
+	How Win32 Applications Can Read CD-ROM Sectors in Windows 95
+</title><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta id="ctl00_ctl00_WtCampaignId" name="DCSext.wt_linkid"><meta id="ctl00_ctl00_WtTarget" name="DCSext.wt_target"><meta id="ctl00_ctl00_WtSp" name="WT.sp"><meta name="DCSdir.gTrackExceptions" content="no-track">
+    <link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/oneMscomMaster.css">
+    <link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/onemscomcomponents.css">
+    <script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/oneMscomMaster.js"></script>
+    
+    <link title="Microsoft Support Search" type="application/opensearchdescription+xml" rel="search" href="http://support.microsoft.com/common/opensearchdescriptor.aspx?ln=en-us"><meta name="ms.gsfxversion" content="7.7.18.0"><meta name="ms.sup_cid" content="137813"><meta name="ms.sup_cln" content="en-us"><meta name="ms.sup_ct" content="kb"><meta name="ms.sup_ln" content="en-us"><meta name="ms.sup_sd" content="gn"><meta name="DCSext.sup_cid" content="137813"><meta name="DCSext.sup_cln" content="en-us"><meta name="DCSext.sup_ct" content="kb"><meta name="DCSext.sup_ln" content="en-us"><meta name="DCSext.sup_sd" content="gn"><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/jquery-1.js"></script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/default.js"></script><script type="text/javascript">var g_currentContent='kb\x3ben-us\x3b137813';</script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/survey.js"></script><meta name="robots" content=""><meta name="Search.KeyWords" content="kbapi kbcode kbkernbase KB137813"><meta name="Search.Assets" content="0"><meta name="Search.Retire" content="0"><meta name="Search.ContentType" content="kb"><meta name="Search.Title" content="How Win32 Applications Can Read CD-ROM Sectors in Windows 95"><meta name="Search.KBParents" content="12243 12209 12250"><meta name="Search.Description" content="Some Win32 applications, such as multimedia applications and games, need to read sectors directly from compact discs to implement custom access or read caching to optimize CD-ROM access for specific purposes. This article provides information and..."><meta name="Search.DateModified" content="2006-11-21T15:50:12"><meta name="Search.QueryWords" content="Windows 95 4.00 cdrom cd-rom absolute"><meta name="Search.Audiences" content=""><meta name="Search.Products" content=""><meta name="KBParents" content="12243 12209 12250"><meta name="Search.ContentID" content="137813"><meta name="Search.scid" content="kb;en-us;137813"><meta name="Search.MT" content="0"><meta name="Search.KB3" content="0"><meta name="Keywords" content="kbapi kbcode kbkernbase KB137813"><meta name="Description" content="Some Win32 applications, such as multimedia applications and games, need to read sectors directly from compact discs to implement custom access or read caching to optimize CD-ROM access for specific purposes. This article provides information and..."><meta name="MS.LOCALE" content="en"><meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta http-equiv="content-language" content="en-US"><script type="text/javascript">var gCookieDomain='';var url_exactMatch='/select/Default.aspx?target=assistance';</script><link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/default.css"><link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/XmlContent.css"><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/kb.js"></script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/stickypanel.js"></script><link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/stickypanel.css"><link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/branding.css">
+<!-- RESG: 9/13/2011 9:03:16 PM - RESX: 1/1/0001 12:00:00 AM -->
+<!-- (c) 2011 Microsoft Corporation. All Rights Reserved -->
+<script type="text/javascript">var PersonalizationInfo='a2IxMzc4MTMIZW4tdXMISG93IFdpbjMyIEFwcGxpY2F0aW9ucyBDYW4_';</script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/surveycookieutil.js"></script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/search.js"></script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/ac.js"></script>    
+    <style type="text/css">
+        #gsfx_brnd_PageWrapper
+        {
+            float: left;
+        }        
+        div.stage, div.mstHdr
+        {
+            width: 1024px;
+        }
+        div.search-navigation
+        {
+            margin-bottom: 0px;    
+        }
+        #contentArea
+        {
+            border-bottom: 0px;       
+        }        
+    </style>
+<style type="text/css">
+
+    body 
+    {
+        color: #000;
+        background-color: #ececec;
+       
+    }
+
+    body, input 
+    {
+        font-size: 100%;
+    }
+
+    body, select 
+    {
+        font-family: Segoe UI,Arial,Verdana,Tahoma,sans-serif;
+    }
+
+    .png-img span 
+    {
+        left: -9999px;
+    }
+
+    .png-img div 
+    {
+        left: 0;
+    }
+
+    div.form-bottom-inner 
+    {
+         
+    }
+
+    div.stage-bg-top 
+    {
+        background-color: #fff;
+        left: 0;
+    }
+
+    div.stage-bg-mid 
+    {
+        background-color: #fff;
+        left: 0;
+    }
+
+    div.stage-bg-bot 
+    {
+        background-color: #fff;
+        left: 0;
+    }
+    
+    div.main-brand div
+    {
+        float: left;
+    }
+    div.main-brand div.brandLogoText
+    {
+        color: #4f4f4f;
+        font-size: 188%;
+    }
+
+    div.main-brand div.brandTagLineText
+    {
+        color: #4f4f4f;
+        font-size: 80%;
+    }
+    
+    
+</style><script defer="true" async="true" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/wt_lib.js" type="text/javascript"></script><script defer="true" async="true" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/1027ed543b58578e6e3b824071758d9bdeafd1265a7b24402f7551e927c3.htm" type="text/javascript"></script><meta name="ms.ssversion" content="GSS7.1"><meta name="ms.eventseqno" content="3"></head>
+<!--dynamic style-->
+
+<body style="visibility: visible;" bi:type="oneMscomMaster">
+    
+    <script type="text/javascript">        if (typeof WTOptimize != 'undefined') WTOptimize.setup();</script>
+    
+    <div class="stage">
+        <div class="utility-bar">
+            
+    
+
+<!-- link to css file-->
+
+<link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/oneMscomBlade.css">
+
+
+<script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/oneMscomBlade.js"></script>
+
+<!-- GET DYNAMIC STYLE FROM CODE BEHIND-->
+<style type="text/css">.mstHdr {font-family:Segoe UI,Arial,Verdana,Tahoma,sans-serif;}.mstHdr .mstHdr_PriRowBg {background-color:#464646;opacity:1;filter:alpha(opacity=100);_opacity:1;_filter:alpha(opacity=100);}.mstHdr .mstHdr_PriRow {_background-color:#464646;}.mstHdr .mstHdr_PriRow, .mstHdr .mstHdr_PriRow a:link, .mstHdr .mstHdr_PriRow a:visited, .mstHdr .mstHdr_PriRow a:active, .mstHdr .mstHdr_PriRow a:hover {color:#ffffff;}.mstHdr .mstHdr_StaticSec11,.mstHdr .mstHdr_StaticSec12,.mstHdr .mstHdr_StaticSec13 {float:left;}.mstHdr .mstHdr_StaticSec14 {float:right;}.mstHdr .mstHdr_StaticSecLeftAlign {float:left;}.mstHdr .mstHdr_StaticSecRightAlign {float:right;}.mstHdr .mstHdr_FlyoutPos {left: 0;}.mstHdr .mstHdr_PriRow .mstHdr_Flyout {background-color:#464646;}.mstHdr .mstHdr_PriRow .mstHdr_Flyout, .mstHdr .mstHdr_PriRow .mstHdr_Flyout a:link, .mstHdr .mstHdr_PriRow .mstHdr_Flyout a:visited, .mstHdr .mstHdr_PriRow .mstHdr_Flyout a:active, .mstHdr .mstHdr_PriRow .mstHdr_Flyout a:hover {color:#ffffff;}.mstHdr .mstLcp .mstLcp_Head {margin-left: 5px;}.mstHdr .mstLcp_Heading h3 {font-family: Segoe UI Light,Segoe UI,Arial,Verdana,Tahoma,sans-serif;color:#ffffff;}.mstHdr .mstLcp_LangLinks ul.mstLcp_Col {float:left;margin-left: 6px;}.mstHdr .mstLcp_LangLinks ul.mstLcp_Col.mstLcp_C0 {margin-left: 0;}.mstHdr .mstLcp_LangLinks ul.mstLcp_Col li {margin-left: 5px;}.mstHdr .mstLcp_LangLinks ul.mstLcp_Col.mstLcp_C0 li {margin-left: 0;}.mstHdr .mstLcp_LangLinks a:link,.mstHdr .mstLcp_LangLinks a:visited,.mstHdr .mstLcp_WorldwideLink a:link,.mstHdr .mstLcp_WorldwideLink a:visited {color:#ffffff;}.mstHdr .mstLcp_LangLinks li.mstLcp_Hide a {color:#e3e3e3 !important;}.mstHdr .mstLcp_WorldwideLink a {float:left;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA,.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB {padding-top: 30px;min-height: 280px;_height: 280px;_width: 960px;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 {float:left;padding-left: 40px;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Image {float:left;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutA .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Text {float:left;margin-left: 20px;}.mstHdr .mstHdr_Flyout .mstHdr_PrdSection32 {float:left;width:230px;}.mstHdr .mstHdr_Flyout .mstHdr_PrdSection33 {float:left;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 {float:left;padding-left: 30px;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item {margin-left:7px;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 li {float:left;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_PrdSection31_Item .mstHdr_PrdSection31_Text {margin-left: 10px;}.mstHdr .mstHdr_Flyout .mstHdr_PrdLayoutB .mstHdr_PrdSection31 .mstHdr_HomePageLayoutB .mstHdr_PrdSection31_Item a.blockAnchor .mstHdr_PrdSection31_Text {margin-left: 15px;margin-right: 10px;}.mstHdr .mstHdr_AnimateDesc div.mstHdr_MenuLinkDesc {padding-left: 3px;}</style>
+
+<div class="oneMscomComp mstHdr_FlyoutRegion-ltr" dir="ltr" bi:type="oneMscomBlade">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_Header" class="mstHdr">
+        <div class="mstHdr_PriRow">
+            <div class="mstHdr_PriRowBg">
+            </div>
+            <div class="cssClear">
+            </div>
+            <div class="mstHdr_StaticSec11">
+                <div class="mstHdr_StaticSecLeftAlign">
+                    
+                            
+<div class="mstHdr_MenuItem" id="mthdr01" bi:type="oneMscomHeaderLink">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl00_ctl00_MenuLink" class="mstHdr_MenuLink">
+        <a href="http://www.microsoft.com/" id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl00_ctl00_MenuLinkAnchor" class="mstHdr_MenuLinkAnchor">
+            
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl00_ctl00_MenuLinkImage" class="mstHdr_MenuLinkImg png-img" title="MS Home Page" style="padding-top:5px;padding-bottom:6px;">
+                <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl00_ctl00_MenuLinkImageBg" class="bg-img" style="background-image:url('http://www.microsoft.com/global/oneMscomSettings/PublishingImages/HeaderImages/MicrosoftLogo.png');width:75px;height:15px;"></div>
+                <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl00_ctl00_MenuLinkImageFilter" class="filter-img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&quot;http://www.microsoft.com/global/oneMscomSettings/PublishingImages/HeaderImages/MicrosoftLogo.png&quot;, sizingMethod=&quot;scale&quot;);width:75px;height:15px;"></div>
+            </div>
+            
+            <div class="cssClear">
+            </div>
+        </a>
+    </div>
+    
+</div>
+                        
+                            
+<div class="mstHdr_MenuItem" id="mthdr02" bi:type="oneMscomHeaderLink">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_MenuLink" class="mstHdr_MenuLink mstHdr_FlyoutLink mstHdr_HideMenuLink mstHdr_AnimateDesc" style="width:;">
+        <a href="http://support.microsoft.com/default.aspx/kb/137813/EN-US?hdrFo=mthdr02" id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_MenuLinkAnchor" class="mstHdr_MenuLinkAnchor mstHdr_MenuLinkBoth" bi:track="false">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_MenuLinkText" class="mstHdr_MenuLinkTxt">PRODUCTS</div>
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_MenuLinkImage" class="mstHdr_MenuLinkImg png-img" title="Menu" style="padding-top:5px;padding-bottom:6px;">
+                <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_MenuLinkImageBg" class="bg-img" style="background-image:url('http://www.microsoft.com/global/oneMscomSettings/PublishingImages/HeaderImages/Products_Dropdown.png');width:15px;height:15px;"></div>
+                <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_MenuLinkImageFilter" class="filter-img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&quot;http://www.microsoft.com/global/oneMscomSettings/PublishingImages/HeaderImages/Products_Dropdown.png&quot;, sizingMethod=&quot;scale&quot;);width:15px;height:15px;"></div>
+            </div>
+            
+            <div class="cssClear">
+            </div>
+        </a>
+    </div>
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_HeaderFlyoutPos" class="mstHdr_FlyoutPos">
+        <div class="mstHdr_Flyout">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec11_Repeater_ctl01_ctl00_HeaderFlyoutContent" bi:type="oneMscomProduct" class="mstHdr_ShowFlyoutA"><div id="ProductLayoutA" class="mstHdr_PrdLayoutA"><div class="mstHdr_PrdSection31"><ul><li id="mthdr09"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://windows.microsoft.com/en-US/windows/home"><div class="mstHdr_PrdSection31_Image_Inner" title="Windows" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/WindowsLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://windows.microsoft.com/en-US/windows/home"><span>Windows</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr10"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://office.microsoft.com/en-us/"><div class="mstHdr_PrdSection31_Image_Inner" title="Office" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Office" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/OfficeLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://office.microsoft.com/en-us/"><span>Office</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr11"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://www.xbox.com/en-US/"><div class="mstHdr_PrdSection31_Image_Inner" title="xbox" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="xbox" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/XboxLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://www.xbox.com/en-US/"><span>Xbox</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr12"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://www.microsoft.com/windowsphone/en-us/default.aspx"><div class="mstHdr_PrdSection31_Image_Inner" title="Windows Phone" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows Phone" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/PhoneLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://www.microsoft.com/windowsphone/en-us/default.aspx"><span>Windows Phone</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr13"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home"><div class="mstHdr_PrdSection31_Image_Inner" title="IE" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="IE" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/IELogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home"><span>Internet Explorer</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr14" class="mstHdr_HomePageLayoutB"><div class="mstHdr_PrdSection31_Item"><div class="mstHdr_PrdSection31_Text"><a href="http://www.microsoft.com/"><span>Microsoft Home Page</span></a></div></div><div class="cssClear"></div></li></ul></div><div id="HeaderProductSection32" class="mstHdr_PrdSection32"><ul><li id="mthdr15"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Home</span></a></div></li><li id="mthdr16"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/en-us/security_essentials/default.aspx"><span>Security Essentials</span></a></div></li><li id="mthdr17"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.update.microsoft.com/microsoftupdate/v6/vistadefault.aspx?ln=en-us"><span>Microsoft Update</span></a></div></li><li id="mthdr18"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/hardware/en-us"><span>PC Hardware</span></a></div></li><li id="mthdr19"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.gamesforwindows.com/en-US"><span>PC Gaming</span></a></div></li></ul><ul><li id="mthdr20"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Work</span></a></div></li><li id="mthdr21"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/business/en-us/?fbid=LA48QIb2QmO"><span>Small &amp; Medium Businesses</span></a></div></li><li id="mthdr22"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://pinpoint.microsoft.com/en-US/Default.aspx?WT.mc_id=MSCOM_HP_US_BL_PinPoint"><span>IT Specialist Locator</span></a></div></li><li id="mthdr23"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/enterprise/default.aspx"><span>Enterprise</span></a></div></li><li id="mthdr24"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/servers/home.mspx"><span>Server &amp; Tools</span></a></div></li></ul></div><div id="HeaderProductSection33" class="mstHdr_PrdSection33"><ul><li id="mthdr25"><div class="mstHdr_PrdSection33_GroupHeader"><a href="javascript:void(0);"><span>Top Destinations</span></a></div></li><li id="mthdr26"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/download/en/default.aspx"><span>Download Center</span></a></div></li><li id="mthdr27"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoftstore.com/store/msstore/home?WT.mc_id=SMCMSCOM_ENUS_NAV_BUYALL"><span>Microsoft Store</span></a></div></li><li id="mthdr28"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://support.microsoft.com/?LN=en-us&amp;x=16&amp;y=12"><span>Microsoft Support</span></a></div></li><li id="mthdr29"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/"><span>Microsoft Home Page</span></a></div></li><li id="mthdr30"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/en/us/sitemap.aspx"><span>All Microsoft Sites</span></a></div></li></ul></div><div class="cssClear"></div></div><div id="ProductLayoutB" class="mstHdr_PrdLayoutB"><div class="mstHdr_PrdSection31"><ul><li id="mthdr09"><div class="mstHdr_PrdSection31_Item"><a href="http://windows.microsoft.com/en-US/windows/home" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="Windows"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/WindowsLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Windows</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr10"><div class="mstHdr_PrdSection31_Item"><a href="http://office.microsoft.com/en-us/" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="Office"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Office" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/OfficeLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Office</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr11"><div class="mstHdr_PrdSection31_Item"><a href="http://www.xbox.com/en-US/" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="xbox"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="xbox" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/XboxLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Xbox</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr12"><div class="mstHdr_PrdSection31_Item"><a href="http://www.microsoft.com/windowsphone/en-us/default.aspx" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="Windows Phone"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows Phone" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/PhoneLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Windows Phone</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr13"><div class="mstHdr_PrdSection31_Item"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="IE"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="IE" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/IELogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Internet Explorer</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr14" class="mstHdr_HomePageLayoutB"><div class="mstHdr_PrdSection31_Item"><a href="http://www.microsoft.com/" class="blockAnchor" style="text-decoration: none;"><div style="height:100%"><div class="mstHdr_PrdSection31_Text"><span>Microsoft Home Page</span></div></div></a></div><div class="cssClear"></div></li></ul></div><div id="HeaderProductSection32" class="mstHdr_PrdSection32"><ul><li id="mthdr15"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Home</span></a></div></li><li id="mthdr16"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/en-us/security_essentials/default.aspx"><span>Security Essentials</span></a></div></li><li id="mthdr17"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.update.microsoft.com/microsoftupdate/v6/vistadefault.aspx?ln=en-us"><span>Microsoft Update</span></a></div></li><li id="mthdr18"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/hardware/en-us"><span>PC Hardware</span></a></div></li><li id="mthdr19"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.gamesforwindows.com/en-US"><span>PC Gaming</span></a></div></li></ul><ul><li id="mthdr20"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Work</span></a></div></li><li id="mthdr21"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/business/en-us/?fbid=LA48QIb2QmO"><span>Small &amp; Medium Businesses</span></a></div></li><li id="mthdr22"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://pinpoint.microsoft.com/en-US/Default.aspx?WT.mc_id=MSCOM_HP_US_BL_PinPoint"><span>IT Specialist Locator</span></a></div></li><li id="mthdr23"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/enterprise/default.aspx"><span>Enterprise</span></a></div></li><li id="mthdr24"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/servers/home.mspx"><span>Server &amp; Tools</span></a></div></li></ul></div><div id="HeaderProductSection33" class="mstHdr_PrdSection33"><ul><li id="mthdr25"><div class="mstHdr_PrdSection33_GroupHeader"><a href="javascript:void(0);"><span>Top Destinations</span></a></div></li><li id="mthdr26"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/download/en/default.aspx"><span>Download Center</span></a></div></li><li id="mthdr27"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoftstore.com/store/msstore/home?WT.mc_id=SMCMSCOM_ENUS_NAV_BUYALL"><span>Microsoft Store</span></a></div></li><li id="mthdr28"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://support.microsoft.com/?LN=en-us&amp;x=16&amp;y=12"><span>Microsoft Support</span></a></div></li><li id="mthdr29"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/"><span>Microsoft Home Page</span></a></div></li><li id="mthdr30"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/en/us/sitemap.aspx"><span>All Microsoft Sites</span></a></div></li></ul></div><div class="cssClear"></div></div></div>
+             <div class="mstHdr_PrdBottomStrip">
+            </div>
+        </div>
+    </div>
+</div>
+                        
+                </div>
+            </div>
+            <div class="mstHdr_StaticSec12">
+                <div class="mstHdr_StaticSecLeftAlign">
+                    
+                            
+<style type="text/css">
+    div.gsfx_bsrch_container
+    {
+        background-image: none;
+        margin: 0px 2px 0px 2px;
+        float: none;
+        height: 24px;
+        width: 326px;
+    }
+    #gsfx_bsrch_divQuery
+    {
+        margin: 0px;
+        background-color: #FFFFFF;
+        height: 22px;
+        border: 1px solid #999999;
+    }
+    #gsfx_bsrch_divQuery #gsfx_bsrch_query
+    {
+        margin-top: 0px;
+        font-size: 75%;
+        padding: 2px 2px 0px 2px;
+        margin: 2px 2px 0px 2px;
+        vertical-align: top;
+        height: 16px;
+        background-color:transparent;
+    }
+    #gsfx_bsrch_divQuery #gsfx_bsrch_btnimg
+    {
+        margin-top: 1px;
+        margin-left: 0px;
+        vertical-align: top;
+    }
+    #gsfx_cat_sel
+    {
+        margin-top: 0px;
+        margin-right: 0px;
+        width: 13px;
+    }
+    #gsfx_bsrch_logo
+    {
+        cursor: auto;
+        vertical-align: top;
+        margin-top: 1px;
+    }
+    #gsfx_bsrch_logo_div
+    {
+        margin-top: 0px;
+        margin-right: 5px;
+    }
+    div.search-navigation .search
+    {
+        width: 328px;
+    }
+    .gsfx_srchsitename_cotnr
+    {
+        width: 293px;
+        float: right;
+    }
+    .gsfx_srchoptimg_cotnr
+    {
+        width: 15px;
+    }
+    #acListWrappergsfx_bsrch_query
+    {
+        top:0px;
+        *top:-3px;
+    }
+</style>
+<form id="frmsrch" action="/search/default.aspx" method="get" onsubmit="return SaveSimpleSearch();">
+<script type="text/javascript">setACStartChars('4:');</script>
+<div id="gsfx_bsrch_bg" class="gsfx_bsrch_container">
+    <div id="gsfx_bsrch_divQuery" style="width: 324px">
+        <input id="idTxtFld" type="hidden"><input id="gsfx_bsrch_query" style="width: 245px;" name="query" maxlength="200" value="Search Microsoft Support" class="siteseltxt" autocomplete="off" type="text"><span style="display: inline-block;*display:inline; height: 22px; width: 40px;margin-left:5px;margin-right:5px;"><img alt="" class="gsfx_img_png" id="topSearchBingLogo" style="width: 40px; height: 21px; visibility: visible;" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/bing_logo_blue.png" onclick="HandleBingClick()"><!--[if lte IE 6]><div alt="" class="gsfx_div_png" id="topSearchBingLogo" style="width:40px;height:21px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/CN/bing_logo_blue.png', sizingMethod='scale');" onclick="HandleBingClick()"></div><![endif]--></span><input alt="" class="gsfx_img_png" style="width: 20px; height: 20px;" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/ss_live_button.png" onclick="return SaveSimpleSearch();" id="gsfx_bsrch_btnimg" type="image"><!--[if lte IE 6]><input type="image" src="/library/images/support/cn/onepix.gif" alt="" class="gsfx_div_png" style="width:20px;height:20px;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/library/images/support/CN/ss_live_button.png', sizingMethod='scale');" onclick="return SaveSimpleSearch();" id="gsfx_bsrch_btnimg" /><![endif]--><div style="position: relative; width: 150px; height: 0px; margin-left: -1px;" id="acListWrappergsfx_bsrch_query"><div style="padding: 6px 1px 6px 10px; margin: 0px; visibility: hidden; z-index: 99; position: absolute; line-height: 18px; width: 137px; border-width: 0px 1px; border-style: none solid; border-color: rgb(51, 107, 149); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; -moz-border-image: none; overflow: hidden; background: url(&quot;/library/images/support/cn/ss_section2.png&quot;) no-repeat scroll left top rgb(255, 255, 255); font-size: 0.7em; font-family: MS Shell Dlg;" id="acListDivgsfx_bsrch_query"></div><div style="display: none;" id="gsfx_bsrch_options"><div style="width: 324px;" id="gsfx_bsrch_options_subcntr"><div style="cursor: default;" class="gsfx_optsub_cotnr"><div class="gsfx_srchoptimg_cotnr"><img style="display: block;" class="gsfx_bsrch_chkimg" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/ss_check.png" id="gsfx_bsrch_sitesel_img0"></div><div style="font-weight: bold;" class="gsfx_srchsitename_cotnr" id="gsfx_srchsitename_div0">Search Microsoft Support</div></div><div class="gsfx_optsub_cotnr"><div class="gsfx_srchoptimg_cotnr"><img class="gsfx_bsrch_chkimg" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/ss_check.png" id="gsfx_bsrch_sitesel_img1"></div><div class="gsfx_srchsitename_cotnr" id="gsfx_srchsitename_div1">Search Microsoft.com</div></div><div class="gsfx_optsub_cotnr"><div class="gsfx_srchoptimg_cotnr"><img class="gsfx_bsrch_chkimg" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/ss_check.png" id="gsfx_bsrch_sitesel_img2"></div><div class="gsfx_srchsitename_cotnr" id="gsfx_srchsitename_div2">Search the web</div></div></div></div></div></div>
+        <div id="gsfx_cat_sel" style="display:none">
+        <input id="gsfx_cat_sel_btn" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/ss_dd_select1.png" hover-src="/library/images/support/cn/ss_dd_select2.png" type="image">
+        
+        <input id="catalog" name="catalog" value="LCID=1033" type="hidden">
+        
+    </div>
+</div>
+<script type="text/javascript">try{MS.Support.AC.MakeAutoComplete({id:'gsfx_bsrch_query', lcid:'1033', acURL:'http://autocomplete.support.microsoft.com', statsObj:StatsDotNet, startChar:'4', bubbleside:'left'});}catch(e){}</script><script type="text/javascript">supportedSites.push(new Site('Search Microsoft Support', '\x2fsearch\x2fdefault.aspx', true));supportedSites.push(new Site('Search Microsoft.com', 'http\x3a\x2f\x2fsearch.microsoft.com\x2fresults.aspx\x3fmkt\x3den-us\x26q\x3d', false));supportedSites.push(new Site('Search the web', 'http\x3a\x2f\x2fwww.bing.com\x2fsearch\x3fmkt\x3den-us\x26q\x3d', false));</script>
+<div class="hiddenformels">
+    <input name="mode" value="r" type="hidden">
+</div>
+<noscript>
+    <style type="text/css">
+        #gsfx_bsrch_catsel a
+        {
+            display: none;
+        }
+        #gsfx_bsrch_websrch
+        {
+            display: none;
+        }
+        #gsfx_bsrch_query
+        {
+            font-style: normal;
+            color: Black;
+        }
+    </style>
+</noscript>
+</form>
+
+                        
+                </div>
+            </div>
+            <div style="width: auto;" class="mstHdr_StaticSec14">
+                <div class="mstHdr_StaticSecRightAlign">
+                    
+                            
+<div class="mstHdr_MenuItem mstHdr_MenuItemLcp" id="mthdr07" bi:type="oneMscomHeaderLink">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec14_Repeater_ctl00_ctl00_MenuLink" class="mstHdr_MenuLink mstHdr_FlyoutLink">
+        <span id="ctl00_ctl00_Header_oneMscomBlade_StaticSec14_Repeater_ctl00_ctl00_MenuLinkSpan"><a href="http://support.microsoft.com/default.aspx/kb/137813/EN-US?hdrFo=mthdr07" id="ctl00_ctl00_Header_oneMscomBlade_StaticSec14_Repeater_ctl00_ctl00_MenuLinkAnchor" class="mstHdr_MenuLinkAnchor mstLcp_MenuLinkAnchorNormal" bi:track="false">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec14_Repeater_ctl00_ctl00_MenuLinkText" class="mstHdr_MenuLinkTxt">United States </div>
+            
+            <div class="cssClear">
+            </div>
+        </a></span>
+    </div>
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec14_Repeater_ctl00_ctl00_HeaderFlyoutPos" class="mstHdr_FlyoutPos">
+        <div class="mstHdr_Flyout">
+            
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec14_Repeater_ctl00_ctl00" class="mstLcp">
+                
+                <div class="mstLcp_Head">
+                    <div class="mstLcp_Heading">
+                        <h3 id="ctl00_ctl00_Header_oneMscomBlade_StaticSec14_Repeater_ctl00_ctl00_SiteInOtherLanguages">This site in other countries/regions:</h3>
+                    </div>
+                </div>
+                <div class="mstLcp_LangLinks mstLcp_Cols5">
+                    
+                    <ul class="mstLcp_Col mstLcp_C0">
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr-al">
+                            <span dir="ltr">
+                                Algeria - Français</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-ar">
+                            <span dir="ltr">
+                                Argentina - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-au">
+                            <span dir="ltr">
+                                Australia - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=nl-be">
+                            <span dir="ltr">
+                                België - Nederlands</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr-be">
+                            <span dir="ltr">
+                                Belgique - Français</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-bo">
+                            <span dir="ltr">
+                                Bolivia - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=hr-ba">
+                            <span dir="ltr">
+                                Bosna i Hercegovina  - Hrvatski</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=pt-br">
+                            <span dir="ltr">
+                                Brasil - Português</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-ca">
+                            <span dir="ltr">
+                                Canada - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr-ca">
+                            <span dir="ltr">
+                                Canada - Français</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=cs">
+                            <span dir="ltr">
+                                Česká Republika - Čeština</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-cl">
+                            <span dir="ltr">
+                                Chile - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-co">
+                            <span dir="ltr">
+                                Colombia - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-cr">
+                            <span dir="ltr">
+                                Costa Rica - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=sr-me">
+                            <span dir="ltr">
+                                Crna Gora - Srpski</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=da">
+                            <span dir="ltr">
+                                Danmark - Dansk</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=de">
+                            <span dir="ltr">
+                                Deutschland – Deutsch</span></a></li>
+                        
+                    </ul>
+                    
+                    <ul class="mstLcp_Col mstLcp_C1">
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-do">
+                            <span dir="ltr">
+                                Dominican Republic - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-ec">
+                            <span dir="ltr">
+                                Ecuador - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=et">
+                            <span dir="ltr">
+                                Eesti - Eesti</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-sv">
+                            <span dir="ltr">
+                                El Salvador - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-es">
+                            <span dir="ltr">
+                                España - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr">
+                            <span dir="ltr">
+                                France - Français</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-gt">
+                            <span dir="ltr">
+                                Guatemala - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-hk">
+                            <span dir="ltr">
+                                Hong Kong SAR - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=hr">
+                            <span dir="ltr">
+                                Hrvatska - Hrvatski</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-in">
+                            <span dir="ltr">
+                                India - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=id-id">
+                            <span dir="ltr">
+                                Indonesia - Bahasa</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-id">
+                            <span dir="ltr">
+                                Indonesia - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-ie">
+                            <span dir="ltr">
+                                Ireland - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=is-is">
+                            <span dir="ltr">
+                                Ísland - Íslenska</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=it">
+                            <span dir="ltr">
+                                Italia - Italiano</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-la">
+                            <span dir="ltr">
+                                Latinoamérica - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=lv">
+                            <span dir="ltr">
+                                Latvija - Latviešu</span></a></li>
+                        
+                    </ul>
+                    
+                    <ul class="mstLcp_Col mstLcp_C2">
+                        
+                        <li><a href="http://support.microsoft.com/?ln=lt">
+                            <span dir="ltr">
+                                Lietuva - Lietuvių</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr-lu">
+                            <span dir="ltr">
+                                Luxembourg - Français </span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=hu">
+                            <span dir="ltr">
+                                Magyarország - Magyar</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-my">
+                            <span dir="ltr">
+                                Malaysia - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-mx">
+                            <span dir="ltr">
+                                México - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-me">
+                            <span dir="ltr">
+                                Middle East - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr-mo">
+                            <span dir="ltr">
+                                Morrocco - Français</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=nl">
+                            <span dir="ltr">
+                                Nederland - Nederlands</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-nz">
+                            <span dir="ltr">
+                                New Zealand - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=no">
+                            <span dir="ltr">
+                                Norge - Bokmål</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=de-at">
+                            <span dir="ltr">
+                                Österreich - Deutsch</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-pa">
+                            <span dir="ltr">
+                                Panamá - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-py">
+                            <span dir="ltr">
+                                Paraguay - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-pe">
+                            <span dir="ltr">
+                                Perú - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-ph">
+                            <span dir="ltr">
+                                Philippines - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=pl">
+                            <span dir="ltr">
+                                Polska - Polski</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=pt">
+                            <span dir="ltr">
+                                Portugal - Português</span></a></li>
+                        
+                    </ul>
+                    
+                    <ul class="mstLcp_Col mstLcp_C3">
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-pr">
+                            <span dir="ltr">
+                                Puerto Rico - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ro">
+                            <span dir="ltr">
+                                România - Română</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/kb/137813/EN-US?ln=de-ch">
+                            <span dir="ltr">
+                                Schweiz - Deutsch</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-sg">
+                            <span dir="ltr">
+                                Singapore - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=sl">
+                            <span dir="ltr">
+                                Slovenija - Slovenščina</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=sk">
+                            <span dir="ltr">
+                                Slovensko - Slovenčina</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-za">
+                            <span dir="ltr">
+                                South Africa - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=sr">
+                            <span dir="ltr">
+                                Srbija - Srpski</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr-ch">
+                            <span dir="ltr">
+                                Suisse - Français</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fi">
+                            <span dir="ltr">
+                                Suomi - Suomi</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=sv">
+                            <span dir="ltr">
+                                Sverige - Svenska</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=fr-tu">
+                            <span dir="ltr">
+                                Tunisia - Français</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=tr">
+                            <span dir="ltr">
+                                Türkiye - Türkçe</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=en-gb">
+                            <span dir="ltr">
+                                United Kingdom - English</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-uy">
+                            <span dir="ltr">
+                                Uruguay - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=es-ve">
+                            <span dir="ltr">
+                                Venezuela - Español</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=vi-vn">
+                            <span dir="ltr">
+                                Việt Nam - Tiếng việt</span></a></li>
+                        
+                    </ul>
+                    
+                    <ul class="mstLcp_Col mstLcp_C4">
+                        
+                        <li><a href="http://support.microsoft.com/?ln=el">
+                            <span dir="ltr">
+                                Ελλάδα - Ελληνικά</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=bg">
+                            <span dir="ltr">
+                                България - Български</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=kk-kz">
+                            <span dir="ltr">
+                                Казахстан - Русский</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ru">
+                            <span dir="ltr">
+                                Россия - Русский</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=uk-ua">
+                            <span dir="ltr">
+                                Україна - Українська</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=he">
+                            <span dir="rtl">
+                                ישראל - עברית</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ar-ae">
+                            <span dir="rtl">
+                                الإمارات العربية المتحدة - العربية </span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ar">
+                            <span dir="rtl">
+                                الشرق الاوسط  - العربية - العربية</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ar-sa">
+                            <span dir="ltr">
+                                المملكة العربية السعودية - العربية</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ar-eg">
+                            <span dir="rtl">
+                                مصر - العربية</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=hi-in">
+                            <span dir="ltr">
+                                भारत - हिंदी</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=th">
+                            <span dir="ltr">
+                                ไทย - ไทย</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ko">
+                            <span dir="ltr">
+                                대한민국 - 한국어</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=zh-cn">
+                            <span dir="ltr">
+                                中国  - 简体中文</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=zh-tw">
+                            <span dir="ltr">
+                                台灣 - 繁體中文</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=ja">
+                            <span dir="ltr">
+                                日本 - 日本語</span></a></li>
+                        
+                        <li><a href="http://support.microsoft.com/?ln=zh-hk">
+                            <span dir="ltr">
+                                香港特別行政區 - 繁體中文</span></a></li>
+                        
+                    </ul>
+                    
+                    <div class="cssClear">
+                    </div>
+                </div>
+                <div class="mstLcp_WorldwideLink mstLcp_Cols5">
+                    <a href="http://www.microsoft.com/worldwide/" bi:globalworldwidelinkkey="GlobalWorldwideLinkVal"><span>Microsoft.com worldwide</span></a>
+                    <div class="cssClear"></div>
+                </div>
+            </div>
+            <div class="mstHdr_FlyoutBotStrip"></div>
+        </div>
+    </div>
+</div>
+
+                        
+                </div>
+            </div>
+            <div style="width: 513px;" class="mstHdr_StaticSec13">
+                <div class="mstHdr_StaticSecLeftAlign">
+                    
+                            
+<div class="mstHdr_MenuItem" id="mthdr02" bi:type="oneMscomHeaderLink">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_MenuLink" class="mstHdr_MenuLink mstHdr_FlyoutLink">
+        <a href="http://support.microsoft.com/default.aspx/kb/137813/EN-US?hdrFo=mthdr02" id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_MenuLinkAnchor" class="mstHdr_MenuLinkAnchor mstHdr_MenuLinkBoth" bi:track="false">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_MenuLinkText" class="mstHdr_MenuLinkTxt">PRODUCTS</div>
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_MenuLinkImage" class="mstHdr_MenuLinkImg png-img" title="Menu" style="padding-top:5px;padding-bottom:6px;">
+                <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_MenuLinkImageBg" class="bg-img" style="background-image:url('http://www.microsoft.com/global/oneMscomSettings/PublishingImages/HeaderImages/Products_Dropdown.png');width:15px;height:15px;"></div>
+                <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_MenuLinkImageFilter" class="filter-img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=&quot;http://www.microsoft.com/global/oneMscomSettings/PublishingImages/HeaderImages/Products_Dropdown.png&quot;, sizingMethod=&quot;scale&quot;);width:15px;height:15px;"></div>
+            </div>
+            
+            <div class="cssClear">
+            </div>
+        </a>
+    </div>
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_HeaderFlyoutPos" class="mstHdr_FlyoutPos">
+        <div class="mstHdr_Flyout">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl00_ctl00_HeaderFlyoutContent" bi:type="oneMscomProduct" class="mstHdr_ShowFlyoutA"><div id="ProductLayoutA" class="mstHdr_PrdLayoutA"><div class="mstHdr_PrdSection31"><ul><li id="mthdr09"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://windows.microsoft.com/en-US/windows/home"><div class="mstHdr_PrdSection31_Image_Inner" title="Windows" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/WindowsLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://windows.microsoft.com/en-US/windows/home"><span>Windows</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr10"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://office.microsoft.com/en-us/"><div class="mstHdr_PrdSection31_Image_Inner" title="Office" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Office" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/OfficeLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://office.microsoft.com/en-us/"><span>Office</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr11"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://www.xbox.com/en-US/"><div class="mstHdr_PrdSection31_Image_Inner" title="xbox" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="xbox" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/XboxLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://www.xbox.com/en-US/"><span>Xbox</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr12"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://www.microsoft.com/windowsphone/en-us/default.aspx"><div class="mstHdr_PrdSection31_Image_Inner" title="Windows Phone" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows Phone" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/PhoneLogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://www.microsoft.com/windowsphone/en-us/default.aspx"><span>Windows Phone</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr13"><div class="mstHdr_PrdSection31_Item"><a class="mstHdr_PrdSection31_Image" href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home"><div class="mstHdr_PrdSection31_Image_Inner" title="IE" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="IE" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/IELogo.png" height="100%" width="100%"></div></div></a><div class="mstHdr_PrdSection31_Text"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home"><span>Internet Explorer</span></a></div></div><div class="cssClear"></div></li></ul><ul><li id="mthdr14" class="mstHdr_HomePageLayoutB"><div class="mstHdr_PrdSection31_Item"><div class="mstHdr_PrdSection31_Text"><a href="http://www.microsoft.com/"><span>Microsoft Home Page</span></a></div></div><div class="cssClear"></div></li></ul></div><div id="HeaderProductSection32" class="mstHdr_PrdSection32"><ul><li id="mthdr15"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Home</span></a></div></li><li id="mthdr16"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/en-us/security_essentials/default.aspx"><span>Security Essentials</span></a></div></li><li id="mthdr17"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.update.microsoft.com/microsoftupdate/v6/vistadefault.aspx?ln=en-us"><span>Microsoft Update</span></a></div></li><li id="mthdr18"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/hardware/en-us"><span>PC Hardware</span></a></div></li><li id="mthdr19"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.gamesforwindows.com/en-US"><span>PC Gaming</span></a></div></li></ul><ul><li id="mthdr20"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Work</span></a></div></li><li id="mthdr21"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/business/en-us/?fbid=LA48QIb2QmO"><span>Small &amp; Medium Businesses</span></a></div></li><li id="mthdr22"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://pinpoint.microsoft.com/en-US/Default.aspx?WT.mc_id=MSCOM_HP_US_BL_PinPoint"><span>IT Specialist Locator</span></a></div></li><li id="mthdr23"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/enterprise/default.aspx"><span>Enterprise</span></a></div></li><li id="mthdr24"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/servers/home.mspx"><span>Server &amp; Tools</span></a></div></li></ul></div><div id="HeaderProductSection33" class="mstHdr_PrdSection33"><ul><li id="mthdr25"><div class="mstHdr_PrdSection33_GroupHeader"><a href="javascript:void(0);"><span>Top Destinations</span></a></div></li><li id="mthdr26"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/download/en/default.aspx"><span>Download Center</span></a></div></li><li id="mthdr27"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoftstore.com/store/msstore/home?WT.mc_id=SMCMSCOM_ENUS_NAV_BUYALL"><span>Microsoft Store</span></a></div></li><li id="mthdr28"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://support.microsoft.com/?LN=en-us&amp;x=16&amp;y=12"><span>Microsoft Support</span></a></div></li><li id="mthdr29"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/"><span>Microsoft Home Page</span></a></div></li><li id="mthdr30"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/en/us/sitemap.aspx"><span>All Microsoft Sites</span></a></div></li></ul></div><div class="cssClear"></div></div><div id="ProductLayoutB" class="mstHdr_PrdLayoutB"><div class="mstHdr_PrdSection31"><ul><li id="mthdr09"><div class="mstHdr_PrdSection31_Item"><a href="http://windows.microsoft.com/en-US/windows/home" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="Windows"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/WindowsLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Windows</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr10"><div class="mstHdr_PrdSection31_Item"><a href="http://office.microsoft.com/en-us/" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="Office"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Office" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/OfficeLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Office</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr11"><div class="mstHdr_PrdSection31_Item"><a href="http://www.xbox.com/en-US/" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="xbox"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="xbox" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/XboxLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Xbox</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr12"><div class="mstHdr_PrdSection31_Item"><a href="http://www.microsoft.com/windowsphone/en-us/default.aspx" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="Windows Phone"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="Windows Phone" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/PhoneLogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Windows Phone</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr13"><div class="mstHdr_PrdSection31_Item"><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" class="blockAnchor" style="text-decoration: none;"><div style="height:100%" title="IE"><div class="mstHdr_PrdSection31_Image_Inner" align="center"><div class="mstHdr_PrdSection31_ImageSize"><img alt="IE" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/IELogo.png" height="100%" width="100%"></div></div><div class="mstHdr_PrdSection31_Text"><span>Internet Explorer</span></div></div></a></div><div class="cssClear"></div></li></ul><ul><li id="mthdr14" class="mstHdr_HomePageLayoutB"><div class="mstHdr_PrdSection31_Item"><a href="http://www.microsoft.com/" class="blockAnchor" style="text-decoration: none;"><div style="height:100%"><div class="mstHdr_PrdSection31_Text"><span>Microsoft Home Page</span></div></div></a></div><div class="cssClear"></div></li></ul></div><div id="HeaderProductSection32" class="mstHdr_PrdSection32"><ul><li id="mthdr15"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Home</span></a></div></li><li id="mthdr16"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/en-us/security_essentials/default.aspx"><span>Security Essentials</span></a></div></li><li id="mthdr17"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.update.microsoft.com/microsoftupdate/v6/vistadefault.aspx?ln=en-us"><span>Microsoft Update</span></a></div></li><li id="mthdr18"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/hardware/en-us"><span>PC Hardware</span></a></div></li><li id="mthdr19"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.gamesforwindows.com/en-US"><span>PC Gaming</span></a></div></li></ul><ul><li id="mthdr20"><div class="mstHdr_PrdSection32_GroupHeader"><a href="javascript:void(0);"><span>For Work</span></a></div></li><li id="mthdr21"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/business/en-us/?fbid=LA48QIb2QmO"><span>Small &amp; Medium Businesses</span></a></div></li><li id="mthdr22"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://pinpoint.microsoft.com/en-US/Default.aspx?WT.mc_id=MSCOM_HP_US_BL_PinPoint"><span>IT Specialist Locator</span></a></div></li><li id="mthdr23"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/enterprise/default.aspx"><span>Enterprise</span></a></div></li><li id="mthdr24"><div class="mstHdr_PrdSection32_GroupItem"><a href="http://www.microsoft.com/servers/home.mspx"><span>Server &amp; Tools</span></a></div></li></ul></div><div id="HeaderProductSection33" class="mstHdr_PrdSection33"><ul><li id="mthdr25"><div class="mstHdr_PrdSection33_GroupHeader"><a href="javascript:void(0);"><span>Top Destinations</span></a></div></li><li id="mthdr26"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/download/en/default.aspx"><span>Download Center</span></a></div></li><li id="mthdr27"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoftstore.com/store/msstore/home?WT.mc_id=SMCMSCOM_ENUS_NAV_BUYALL"><span>Microsoft Store</span></a></div></li><li id="mthdr28"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://support.microsoft.com/?LN=en-us&amp;x=16&amp;y=12"><span>Microsoft Support</span></a></div></li><li id="mthdr29"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/"><span>Microsoft Home Page</span></a></div></li><li id="mthdr30"><div class="mstHdr_PrdSection33_GroupItem"><a href="http://www.microsoft.com/en/us/sitemap.aspx"><span>All Microsoft Sites</span></a></div></li></ul></div><div class="cssClear"></div></div></div>
+             <div class="mstHdr_PrdBottomStrip">
+            </div>
+        </div>
+    </div>
+</div>
+                        
+                            
+<div class="mstHdr_MenuItem" id="mthdr04" bi:type="oneMscomHeaderLink">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl01_ctl00_MenuLink" class="mstHdr_MenuLink">
+        <a href="http://www.microsoftstore.com/store/msstore/home?WT.mc_id=SMCMSCOM_ENUS_NAV_BUYALL" id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl01_ctl00_MenuLinkAnchor" class="mstHdr_MenuLinkAnchor">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl01_ctl00_MenuLinkText" class="mstHdr_MenuLinkTxt">STORE</div>
+            
+            
+            <div class="cssClear">
+            </div>
+        </a>
+    </div>
+    
+</div>
+                        
+                            
+<div class="mstHdr_MenuItem" id="mthdr05" bi:type="oneMscomHeaderLink">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl02_ctl00_MenuLink" class="mstHdr_MenuLink">
+        <a href="http://www.microsoft.com/download/en/default.aspx" id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl02_ctl00_MenuLinkAnchor" class="mstHdr_MenuLinkAnchor">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl02_ctl00_MenuLinkText" class="mstHdr_MenuLinkTxt">DOWNLOADS</div>
+            
+            
+            <div class="cssClear">
+            </div>
+        </a>
+    </div>
+    
+</div>
+                        
+                            
+<div class="mstHdr_MenuItem" id="mthdr06" bi:type="oneMscomHeaderLink">
+    <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl03_ctl00_MenuLink" class="mstHdr_MenuLink">
+        <a href="http://support.microsoft.com/?LN=en-us&amp;x=16&amp;y=12" id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl03_ctl00_MenuLinkAnchor" class="mstHdr_MenuLinkAnchor">
+            <div id="ctl00_ctl00_Header_oneMscomBlade_StaticSec13_Repeater_ctl03_ctl00_MenuLinkText" class="mstHdr_MenuLinkTxt">SUPPORT</div>
+            
+            
+            <div class="cssClear">
+            </div>
+        </a>
+    </div>
+    
+</div>
+                        
+                </div>
+            </div>
+            <div class="cssClear">
+            </div>
+        </div>
+        <div class="mstHdr_SecRow">
+            <div class="mstHdr_SecRowBg">
+            </div>
+            <div class="mstHdr_StaticSec21">
+                <div class="mstHdr_StaticSecRightAlign">
+                    
+                            
+                        
+                </div>
+            </div>
+            <div class="cssClear">
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    if (typeof $ != "undefined") {
+        $(function () {
+            if (Mst && Mst.FlyoutMenu) {
+                var BladeClick;
+                var BladeClose;
+                if (typeof MSCOM != "undefined" && typeof MSCOM.BI != "undefined") {
+                    var bi = MSCOM.BI;
+                    BladeClick = function (e) {
+                        /* New Functionality*/
+                        /*
+                        1. Grab all the links in the popups
+                        2. For each link collate the bi parameters
+                        */
+                        var element = $(e.target);
+                        var elements = $(e.target).parents('.mstHdr_MenuItem').find('.mstHdr_Flyout a,.mstHdr_Flyout');
+                        /* Merge Params from the additionalParams*/
+                        var mergedbiData = bi.getMergedBiData(elements);
+                        var customParams = { title: $.trim($(element).text()), parenttitlestructure: bi.getNestedTitleStructure(element, null, true) };
+                        $.extend(customParams, bi.additionalParams, bi.getNestedIndexGridTypeStructure(element));
+
+                        /* Open Bi Event
+                        InteractionType=9;Initial=0;Title=BladeItem;ParentTypeStructure;ParentIndexStructure(same)*/
+                        var openBIParams = $.extend({}, customParams, {
+                            initial: ($(e.target).data('bibladeopen') !== undefined ? $(e.target).data('bibladeopen') : 0)
+                                    , interactiontype: 9
+                                    , index: customParams['parentindexstructure']
+                                    , parentindexstructure: ''
+                                    , '-bi-description-ignore-': 'blade-open'
+                        });
+
+                        $(e.target).data('bibladeopen', 1);
+                        /* Blade Index is Index*/
+                        bi.addRecordQueue(openBIParams);
+
+
+                    };
+                    BladeClose = function ($flyoutLink) {
+                        /*  Blade Close Function InteractionType = 10;Initial = 0/1;Title;ParentTypeStructure;IndexStructure; Remove : ParentTitleStructure */
+                        var biId = $flyoutLink.attr('id');
+                        var customParams = bi.getNestedIndexGridTypeStructure($flyoutLink);
+                        $.extend(customParams, bi.additionalParams, bi.getNestedIndexGridTypeStructure($flyoutLink), {
+                            initial: $flyoutLink.data('bibladeclose') !== undefined ? $flyoutLink.data('bibladeclose') : 0
+                                    , interactiontype: 10
+                                    , title: $.trim($flyoutLink.text())
+                                    , index: customParams['parentindexstructure']
+                                    , parentindexstructure: ''
+                                     , '-bi-description-ignore-': 'blade-close'
+                        });
+
+                        $flyoutLink.data('bibladeclose', 1);
+
+                        bi.addRecordQueue(customParams); /* Close Record*/
+
+                    };
+                }
+                var blade = new Mst.FlyoutMenu('ctl00_ctl00_Header_oneMscomBlade_Header', "mstHdr", "mstHdr_MenuItem", "mstHdr_FlyoutLink", "mstHdr_MenuLink", "mstHdr_Flyout", "mstHdr_FlyoutRegion-ltr", BladeClick, BladeClose);
+                var animItems = new Mst.AnimHeaderItems("ctl00_ctl00_Header_oneMscomBlade_Header", "mstHdr_AnimateDesc", "mstHdr_MenuLinkTxt", "mstHdr_MenuLinkImg", "mstHdr_MenuLinkDesc");
+            }
+        });
+    }
+</script>
+
+
+</div>
+
+
+        </div>
+        <div class="stage-content">
+            <div class="main-brand">
+                <a href="http://support.microsoft.com/" id="ctl00_ctl00_BrandLogo"><table><tbody><tr><td class="brandLogoTextCell"><div><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/Microsoft_Support_Logo.png" alt="Microsoft"></div></td><td class="brandLogoTextCell"></td></tr></tbody></table></a>
+            </div>
+            <div class="search-navigation">
+                <div class="search-navigation-bg">
+                </div>
+                <div class="navigation">
+                    
+    
+
+<!-- link to css file-->
+
+<link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/oneMscomNav.css">
+
+
+<script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/oneMscomNav.js"></script>
+
+
+<!-- GET DYNAMIC STYLE FROM CODE BEHIND-->
+<style type="text/css">.oneMscomNav {color:#000;}.oneMscomNav,.oneMscomNav input {font-size:100%;}.oneMscomNav,.oneMscomNav select {font-family:Segoe UI,Arial,Verdana,Tahoma,sans-serif;}div.oneMscomNav .Nav_shown {display: block;right:none;}.oneMscomNav div.navigation-4level-strip {float:left;}div.oneMscomNav .navigation-section {text-align:left;}div.oneMscomNav .navigation-item {float:left;}div.oneMscomNav .navigation-item-tab .navigation-flyout-arrow {margin-left: 3px;background: transparent url('/_layouts/oneMscom/img/flyout-arrows.png') no-repeat;}div.oneMscomNav .navigation-item-flyout-content .navigation-item {float:left;}div.oneMscomNav div.navigation-item-flyout-content-shown {right: 0;}.oneMscomNav div.navigation-sub {float:left;}div.navigation-sub .navigation-sub-item {float:left;}div.navigation-sub .selected .first {border-left: 0;}div.navigation-sub .navigation-sub-item-tab .navigation-sub-flyout-arrow {margin-left: 3px;background: transparent url('/_layouts/oneMscom/img/flyout-arrows.png') no-repeat;}div.navigation-sub .navigation-sub-item-flyout-content .navigation-sub-item {float:left;}div.navigation-sub div.navigation-sub-item-flyout-content-shown {right: 0;}div.navigation-sub .links {margin-left: 0.5em;}div.oneMscomNav .navigation-item-tab {position: relative;color:#4f4f4f;font-size:80%;border-color:transparent;border-width: 0px 1px 0px 1px;}div.navigation-sub .navigation-sub-item-tab {position: relative;color:#4f4f4f;font-size:80%;border-width: 0px 1px 0px 1px;}.oneMscomNav div.navMenu {font-family:Segoe UI,Arial,Verdana,Tahoma,sans-serif;}div.oneMscomNav .navigation-bg {background-color:#f8f8f8;}div.oneMscomNav .selected .navigation-item-tab {background-color:#ffffff;color:#4f4f4f;border-color:#e0e0e0;z-index: 996;}div.oneMscomNav .selected .navigation-item-tab a:link,div.oneMscomNav .selected .navigation-item-tab a:visited,div.oneMscomNav .selected .navigation-item-tab a:active {color:#4f4f4f;}div.oneMscomNav .navigation-item-tab a {border-color:#f8f8f8;}div.oneMscomNav .selected .navigation-item-tab a:hover {background-color:#ffffff;color:#4f4f4f;border-color:#e0e0e0;}div.oneMscomNav .navigation-item-tab a:link,div.oneMscomNav .navigation-item-tab a:visited,div.oneMscomNav .navigation-item-tab a:active {color:#4f4f4f;}div.oneMscomNav .navigation-item-tab a:hover {color:#4f4f4f;background-color:#e0e0e0;border-color:#e0e0e0;}div.oneMscomNav .navigation-item-flyout .navigation-level2 {border:#e0e0e0 1px solid;background-color:#FFFFFF;font-size:80%;}div.oneMscomNav .navigation-item-flyout .navigation-level2 .links {width:178px;}div.oneMscomNav .navigation-item-flyout .vertical_split {border-right: solid 1px #E3E3E3;}div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a,div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:link,div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:visited,div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:active {color:#0060a6;}div.oneMscomNav .navigation-item-flyout .navigation-level2 .links a:hover {color:#ffffff;background-color:#0060a6;}div.oneMscomNav .navigation-item-flyout .navigation-level3 {border:#e0e0e0 1px solid;background-color:#FFFFFF;}div.oneMscomNav .navigation-item-flyout .navigation-level3 .links {width:178px;}div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a,div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:link,div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:visited,div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:hover,div.oneMscomNav .navigation-item-flyout .navigation-level3 .links .link-group a:active {color:#4f4f4f;background-color:#FFFFFF;font-size:80%;}div.oneMscomNav .navigation-item-flyout .navigation-level3 .link-group a {font-size:80%;color:#4f4f4f;}div.oneMscomNav .link-group-bottom-border {border-bottom: solid 1px #e3e3e3;}div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a,div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:link,div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:visited,div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:active {color:#0060a6;}div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a:hover {color:#ffffff;background-color:#0060a6;}div.oneMscomNav .navigation-item-flyout .navigation-level3 .links a {font-size:80%;color:#0060a6;}div.oneMscomNav .navigation-item-flyout .navigation-level4 {border:#e0e0e0 1px solid;}div.navigation-sub .navigation-sub-bg {background-color:#FFFFFF;}div.navigation-sub .selected .navigation-sub-item-tab {background-color:#FFFFFF;color:#4f4f4f;border-color:#e0e0e0;}div.navigation-sub .selected .navigation-sub-item-tab a:link,div.navigation-sub .selected .navigation-sub-item-tab a:visited,div.navigation-sub .selected .navigation-sub-item-tab a:active {color:#4f4f4f;}div.navigation-sub .navigation-sub-item-tab a:link,div.navigation-sub .navigation-sub-item-tab a:visited,div.navigation-sub .navigation-sub-item-tab a:active {color:#4f4f4f;}div.navigation-sub .navigation-sub-item-tab a:hover {color:#4f4f4f;background-color:#FFFFFF;}div.oneMscomNav .navigation-sub-item-flyout .navigation-sub-level3 {border:#e0e0e0 1px solid;}div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 {background-color:#FFFFFF;}div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:link,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:visited,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:hover,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group a:active {color:#4f4f4f;}div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .link-group {font-size:80%;color:#4f4f4f;}div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:link,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:visited,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:hover,div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links a:active {color:#0060a6;}div.navigation-sub .navigation-sub-item-flyout .navigation-sub-level3 .links {font-size:80%;color:#0060a6;}</style>
+
+
+<div class="oneMscomComp oneMscomNav navigation-flyout-region" bi:type="oneMscomNav">
+    <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_NavigationMenuItems" class="navMenu">
+        <div class="navigation-bg">
+        </div>
+        <ul class="navigation-section" bi:type="oneMscomMenu">
+            
+                    <li id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl00_NavigationListItem" class="navigation-item">
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl00_Navigationtab" class="navigation-item-tab">
+                            <a href="http://support.microsoft.com/" id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl00_NavigationLink" class="navigation-item-tab-text navigation-link" bi:home1="HomeVal1" bi:home2="HomeVal2"><span class="navigation-item-text">Support Home</span><div style="clear: both; "></div></a>
+                        </div>
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl00_NavigationFlyout" class="navigation-item-flyout">
+                            <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl00_NavigationFlyoutContent" class="navigation-item-flyout-content">
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl01_NavigationListItem" class="navigation-item">
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl01_Navigationtab" class="navigation-item-tab">
+                            <a href="http://support.microsoft.com/select/?target=hub" id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl01_NavigationLink" class="navigation-item-tab-text navigation-link"><span class="navigation-item-text">Solution Centers</span><div style="clear: both; "></div></a>
+                        </div>
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl01_NavigationFlyout" class="navigation-item-flyout">
+                            <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl01_NavigationFlyoutContent" class="navigation-item-flyout-content">
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl02_NavigationListItem" class="navigation-item">
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl02_Navigationtab" class="navigation-item-tab">
+                            <a href="http://support.microsoft.com/search/?adv=1" id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl02_NavigationLink" class="navigation-item-tab-text navigation-link"><span class="navigation-item-text">Advanced Search</span><div style="clear: both; "></div></a>
+                        </div>
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl02_NavigationFlyout" class="navigation-item-flyout">
+                            <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl02_NavigationFlyoutContent" class="navigation-item-flyout-content">
+                            </div>
+                        </div>
+                    </li>
+                
+                    <li id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl03_NavigationListItem" class="navigation-item">
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl03_Navigationtab" class="navigation-item-tab">
+                            <a href="http://www.microsoftstore.com/store/msstore/home?WT.mc_id=SMCBAR_ENUS_ADR_BUYALL" id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl03_NavigationLink" class="navigation-item-tab-text navigation-link"><span class="navigation-item-text">Buy Products</span><div style="clear: both; "></div></a>
+                        </div>
+                        <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl03_NavigationFlyout" class="navigation-item-flyout">
+                            <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_ItemsRepeater_ctl03_NavigationFlyoutContent" class="navigation-item-flyout-content">
+                            </div>
+                        </div>
+                    </li>
+                
+        </ul>
+    </div>
+    <div id="ctl00_ctl00_Navigation_oneMscomNav_ctl00_subStrip" class="navigation-4level-strip"></div>
+    
+</div>
+<script type="text/javascript">
+    if (typeof $ != "undefined") {
+        $(function () {
+            if (Mst && Mst.FlyoutNavigationMenu) {
+                var BladeClick;
+                var BladeClose;
+                if (typeof MSCOM != "undefined" && typeof MSCOM.BI != "undefined") {
+                    var bi = MSCOM.BI;
+                    BladeClick = function (e) {
+                        /* New Functionality*/
+                        /*
+                        1. Grab all the links in the popups
+                        2. For each link collate the bi parameters
+                        */
+                        var element = $(e.target);
+                        var elements = $(e.target).parents('.navigation-item').find('.navigation-item-flyout-content a,.navigation-item-flyout-content');
+                        /* Merge Params from the additionalParams*/
+                        var mergedbiData = bi.getMergedBiData(elements);
+                        var customParams = { title: $.trim($(element).text()), parenttitlestructure: bi.getNestedTitleStructure(element, null, true) };
+                        $.extend(customParams, bi.additionalParams, bi.getNestedIndexGridTypeStructure(element));
+
+                        /* Open Bi Event
+                        InteractionType=9;Initial=0;Title=BladeItem;ParentTypeStructure;ParentIndexStructure(same)*/
+                        var openBIParams = $.extend({}, customParams, {
+                            initial: ($(e.target).data('binavopen') !== undefined ? $(e.target).data('binavopen') : 0)
+                                    , interactiontype: 9
+                                    , index: customParams['parentindexstructure']
+                                    , parentindexstructure: ''
+                                    , '-bi-description-ignore-': 'nav-open'
+                        });
+
+                        $(e.target).data('binavopen', 1);
+                        /* Blade Index is Index*/
+                        bi.addRecordQueue(openBIParams);
+
+
+                    };
+                    BladeClose = function ($flyoutLink) {
+                        /*  Blade Close Function InteractionType = 10;Initial = 0/1;Title;ParentTypeStructure;IndexStructure; Remove : ParentTitleStructure */
+                        var biId = $flyoutLink.attr('id');
+                        var customParams = bi.getNestedIndexGridTypeStructure($flyoutLink);
+                        $.extend(customParams, bi.additionalParams, bi.getNestedIndexGridTypeStructure($flyoutLink), {
+                            initial: $flyoutLink.data('binavclose') !== undefined ? $flyoutLink.data('bibladeclose') : 0
+                                    , interactiontype: 10
+                                    , title: $.trim($flyoutLink.text())
+                                    , index: customParams['parentindexstructure']
+                                    , parentindexstructure: ''
+                                     , '-bi-description-ignore-': 'nav-close'
+                        });
+
+                        $flyoutLink.data('binavclose', 1);
+
+                        bi.addRecordQueue(customParams); /* Close Record*/
+
+                    };
+                }
+                var NavigationMenu = new Mst.FlyoutNavigationMenu('ctl00_ctl00_Navigation_oneMscomNav_ctl00_NavigationMenuItems', "navMenu", "navigation-item", "navigation-flyout-link", "navigation-link", "navigation-item-flyout-content", "navigation-flyout-region", "navigation-section", BladeClick, BladeClose, false, "navigation-sub-item-flyout-content", "navigation-sub-item");
+            }
+        });
+    }
+</script>
+
+
+                </div>
+            </div>
+            <div class="main-content">
+                
+    <div id="gsfx_brnd_PageWrapper">
+        <div id="gsfx_brnd_PageContainer">
+            <div id="gsfx_brnd_ContentContainer" class="gsfx_brnd_TransBG">
+                <div id="contentArea">
+                    <div id="mainRow"><div class="primaryTable"><table class="primaryTable" cellpadding="0" cellspacing="0"><tbody><tr><td class="primaryMainColumn"><div id="mainColumn"><div class="SocialMedia"><table style="display: inline-block;" class="SocialMedia_out"><tbody><tr><td class="smlist"><a href="mailto:?subject=How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095&amp;body=http%3a%2f%2fsupport.microsoft.com%2fkb%2f137813%2fEN-US" id="EmailPage" title="E-mail this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="E-mail this page" class="gsfx_img_png" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/email_20x.png"></a></td><td class="smlist"><a href="http://support.microsoft.com/gp/noscript" id="PrintPage" title="Print this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="Print this page" class="gsfx_img_png" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/printer_20x.png"></a></td><td class="smlist"><a title="Share with Messenger" rel="nofollow" href="javascript:AddtoSocialMedia('Live','smcsocialbookmark','http://profile.live.com/badge/?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/SharingBadge16x16White.png" alt="Share with Messenger"></a></td><td class="smlist"><a title="Share on Facebook" rel="nofollow" href="javascript:AddtoSocialMedia('Facebook','smcsocialbookmark','http://www.facebook.com/share.php?u=','');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/facebook_16.png" alt="Share on Facebook"></a></td><td class="smlist"><a title="Share on Twitter" rel="nofollow" href="javascript:AddtoSocialMedia('Twitter','smcsocialbookmark','http://twitter.com/share/?url=','&amp;text=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/twitter_16.png" alt="Share on Twitter"></a></td><td name="gss_socialmedia" class="gss_socialmedia"><div style="position:relative"><a class="SM_Collapse" href="javascript:void(0);" onclick="SMCollapseExpand(this)"></a><div class="SMdetail" name="gss_SocialMedia_detail" style="display:none;"><div class="SMdetail_inner"><div class="smrow"><div><a title="Share on Linkedin" rel="nofollow" href="javascript:AddtoSocialMedia('linkedin','smcsocialbookmark','http://www.linkedin.com/shareArticle?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/linkedin_16.png" alt="Share on Linkedin"><span>Linkedin</span></a></div><div><a title="Share on Digg it" rel="nofollow" href="javascript:AddtoSocialMedia('diggit','smcsocialbookmark','http://digg.com/submit?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/digg_alt_16.png" alt="Share on Digg it"><span>Digg it</span></a></div></div><div class="smrow"><div><a title="Share on Yahoo" rel="nofollow" href="javascript:AddtoSocialMedia('Yahoo','smcsocialbookmark','http://bookmarks.yahoo.com/toolbar/savebm?u=','&amp;t=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/yahoo_16.png" alt="Share on Yahoo"><span>Yahoo</span></a></div><div><a title="Share on Delicious" rel="nofollow" href="javascript:AddtoSocialMedia('delicious','smcsocialbookmark','http://www.delicious.com/save?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/delicious_16.png" alt="Share on Delicious"><span>Delici..</span></a></div></div><div class="smrow"><div><a title="Share on StumbleUpon" rel="nofollow" href="javascript:AddtoSocialMedia('StumbleUpon','smcsocialbookmark','http://www.stumbleupon.com/submit?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/stumbleupon_16.png" alt="Share on StumbleUpon"><span>Stumbl..</span></a></div><div><a title="Share on Yammer" rel="nofollow" href="javascript:AddtoSocialMedia('yammer','smcsocialbookmark','https://www.yammer.com/home/bookmarklet?v=1&amp;u=','&amp;t=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/yammer_16.png" alt="Share on Yammer"><span>Yammer</span></a></div></div><div class="smrow"><div><a title="Share on Reddit" rel="nofollow" href="javascript:AddtoSocialMedia('Reddit','smcsocialbookmark','http://www.reddit.com/submit?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/reddit_16.png" alt="Share on Reddit"><span>Reddit</span></a></div><div><a title="Share on Technorati" rel="nofollow" href="javascript:AddtoSocialMedia('technorati','smcsocialbookmark','http://technorati.com/faves?add=','');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/technorati_16.png" alt="Share on Technorati"><span>Techno..</span></a></div></div><div class="smrow"><div><a title="Share on FriendFeed" rel="nofollow" href="javascript:AddtoSocialMedia('FriendFeed','smcsocialbookmark','http://friendfeed.com/share?url=','');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/friendfeed_16.png" alt="Share on FriendFeed"><span>Friend..</span></a></div></div></div></div></div></td></tr></tbody></table></div><div id="kb" class="kb"><div id="kb_default" class="kb_default ltr"><!-- - -KB 3 start- - --><a id="top"></a><div class="articleProperty">Article ID: 137813 - Last Review: November 21, 2006 - Revision: 3.2</div><h1 class="title">How Win32 Applications Can Read CD-ROM Sectors in Windows 95</h1><div class="appliesToLink"><a href="#appliesto">View products that this article applies to.</a></div><script type="text/javascript">if (!loadTOCNode) {var loadTOCNode = function(){}}</script><div class="notice">This article was previously published under Q137813</div><div id="kb_section" class="section"><div id="kb_expandcollapseall" class="expandcollapseall_open"><a href="javascript:void(0);" class="expandalltext">Expand all</a> | <a href="javascript:void(0);" class="collapsealltext">Collapse all</a><script type="text/javascript">
+                    if (kb_page_object)
+                    {
+                    kb_page_object.kb_imageExpandHoverText = 'Click to expand this image';
+                    }
+                </script></div><h2 class="subTitle" id="tocHeadRef"><div class="kb_tabs_toggle kb_tabs_toggle_open"></div><span><a href="javascript:void(0);">SUMMARY</a></span><div class="sectionpreview_closed">Some Win32 applications, such as multimedia applications and games, need to rea...</div></h2><script type="text/javascript">
+                            loadTOCNode(1, 'summary');
+                        </script><div style="margin-left: 195px;" class="sbody">
+Some Win32 applications, such as multimedia applications and games, need to
+read sectors directly from compact discs to implement custom access or read
+caching to optimize CD-ROM access for specific purposes. This article
+provides information and example code that demonstrates how Win32
+applications can read sectors from compact discs on Windows 95.
+<div class="topOfPage"><a href="#top"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/uparrow.gif" alt="">Back to the top</a></div></div><h2 class="subTitle" id="tocHeadRef"><div class="kb_tabs_toggle kb_tabs_toggle_open"></div><span><a href="javascript:void(0);">MORE INFORMATION</a></span><div class="sectionpreview_closed">The Windows 95 Compact Disc File System (CDFS) is a protected-mode CD-ROM drive...</div></h2><script type="text/javascript">
+                            loadTOCNode(1, 'moreinformation');
+                        </script><div style="margin-left: 195px;" class="sbody">
+The Windows 95 Compact Disc File System (CDFS) is a protected-mode CD-ROM
+driver that implements the V86-mode MSCDEX Interrupt 2Fh functions as its
+sole application-callable interface. This interface allows it to replace
+real-mode CD-ROM drivers and MSCDEX.EXE and still be completely compatible
+with existing applications for MS-DOS and Windows 3.x. In fact,
+applications for MS-DOS and Windows 3.x will not be able to tell the
+difference between CDFS and MSCDEX.EXE.
+<br><br>
+Windows 95 provides an interface for Win32 applications to read sectors
+from compact discs. This interface differs substantially from that
+provided by Windows NT. While Win32 applications on Windows NT use
+CreateFile() and ReadFile() to read sectors from compact discs, Win32
+applications running on Windows 95 must use an indirect method that
+involves thunking to a 16-bit DLL that calls MSCDEX Int 2Fh functions.
+<br><br>
+Because the MSCDEX interface is callable only in V86-mode, Win32
+applications must thunk to a 16-bit DLL, and the 16-bit DLL must use the
+DOS Protected Mode Interface (DPMI) Simulate Real Mode Interrupt function
+to call its functions. The Win32 application must pass a buffer to the 16-
+bit DLL. Inside the thunk, the 16-bit DLL obtains the sector data from
+MSCDEX, copies it into the Win32 application's buffer, and returns to the
+Win32 application.<br><br><br><br>
+The following code demonstrates how to read sectors from a compact disc
+using the method described above. Because the code implements a flat thunk,
+it is divided into three sections:
+<br><ul><li>Code that resides in a Win32 DLL (the 32-bit side of the thunk).
+</li><li>Code that resides in the thunk script.
+</li><li>Code that resides in the 16-bit DLL that actually calls MSCDEX.
+</li></ul><div class="kb_intextwrapper"><div class="kb_intextbody"><pre class="in_text">//--------------------------------------------------------------------
+// Code inside the Win32 DLL (the 32-bit side of the thunk)
+// ReadSectorsFromCD() is exported by the DLL so that it can be called
+// by Win32-based applications.
+
+#include &lt;windows.h&gt;
+
+#define CD_SECTOR_SIZE         2048
+
+__declspec(dllexport)
+BOOL WINAPI ReadSectorsFromCD (BYTE   bDrive,
+                               DWORD  dwStartSector,
+                               WORD   wSectors,
+                               LPBYTE lpBuff);
+
+// Prototype for thunk function in 16-bit DLL.
+BOOL FAR PASCAL ReadCDRomSectors (BYTE   bDrive,
+                                  DWORD  dwStartSector,
+                                  WORD   wSectors,
+                                  LPBYTE lpBuffer);
+
+/*-------------------------------------------------------------------
+  ReadSectorsFromCD()
+
+  Calls the thunked function, ReadCDRomSectors(). This function is
+  exported by the Win32 DLL and thus is callable from Win32-based
+  applications.
+
+  Parameters:
+
+     bDrive
+        Drive letter of CD-ROM drive to read from. Specified as
+        a character in the range 'A', 'B', 'C', ..., 'Z'.  May be
+        upper- or lower-case.
+
+     dwStartSector
+        First sector to read.
+
+     wSectors
+        Number of sectors to read.
+
+     lpBuffer
+        Buffer to contain sector data. Must be large enough to
+        accommodate all sectors being read. Because this buffer is
+        provided to the 16-bit DLL via a thunk, its maximum
+        length is limited to 64K.
+
+  Example use:
+     // Read 5 sectors from CD-ROM drive E: starting at sector 16.
+     fResult = ReadSectorsFromCD ('E', 16, 5, lpBuff);
+
+  Return Value
+     Returns TRUE if successful, or FALSE if an error occurred
+     in reading or if a parameter was invalid.
+-------------------------------------------------------------------*/ 
+
+__declspec(dllexport)
+BOOL WINAPI ReadSectorsFromCD (BYTE   bDrive,
+                               DWORD  dwStartSector,
+                               WORD   wSectors,
+                               LPBYTE lpBuff)
+{
+   // Call 16-bit DLL to read sectors via a 32-&gt;16 thunk
+   return ReadCDRomSectors (bDrive, dwStartSector, wSectors, lpBuff);
+}
+
+//--------------------------------------------------------------------
+// Contents of the thunk script
+
+enablemapdirect3216 = true;
+
+typedef unsigned short WORD;
+typedef unsigned long  DWORD;
+typedef unsigned char  BYTE, *LPBYTE;
+typedef bool           BOOL;
+
+BOOL ReadCDRomSectors (BYTE   bDrive,
+                       DWORD  dwStartSector,
+                       WORD   wSectors,
+                       LPBYTE lpBuffer)
+{
+   lpBuffer = inout;
+}
+
+//--------------------------------------------------------------------
+// Code inside the 16-bit DLL. This code implements the 16-bit side of
+// the thunk, and is where the calls to MSCDEX are made to read
+// sectors from a compact disc.
+
+#include &lt;windows.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+
+// Cooked-mode sector size in bytes
+#define CD_SECTOR_SIZE         2048
+
+// Maximum sector buffer size in bytes
+#define MAX_BUFFER_LENGTH      65536
+
+// Maximum number of sectors for each read request
+#define MAX_CD_SECTORS_TO_READ ((MAX_BUFFER_LENGTH) / \ 
+                                (CD_SECTOR_SIZE))
+
+// Processor flags masks -- use for testing wFlags member of RMCS
+#define CARRY_FLAG  0x0001
+
+// Real-mode call structure for making DPMI Simulate Real Mode
+// Interrupt calls.
+typedef struct tagRMCS
+{
+   DWORD edi, esi, ebp, RESERVED, ebx, edx, ecx, eax;
+   WORD  wFlags, es, ds, fs, gs, ip, cs, sp, ss;
+} RMCS, FAR* LPRMCS;
+
+BOOL FAR PASCAL __export ReadCDRomSectors (BYTE   bDrive,
+                                           DWORD  dwStartSector,
+                                           WORD   wSectors,
+                                           LPBYTE lpBuffer);
+
+BOOL FAR PASCAL MSCDEX_ReadSector (BYTE   bDrive,
+                                   DWORD  dwStartSector,
+                                   LPBYTE RMlpBuffer);
+
+BOOL FAR PASCAL SimulateRM_Int (BYTE bIntNum, LPRMCS lpCallStruct);
+void FAR PASCAL BuildRMCS (LPRMCS lpCallStruct);
+
+/*-------------------------------------------------------------------
+  ReadCDRomSectors()
+
+  Reads a specified number of sectors from a CD-ROM.
+
+  Parameters:
+
+     bDrive
+        Drive letter of CD-ROM drive to read from. Specified as
+        a character in the range 'A', 'B', 'C', ..., 'Z'.  May be
+        upper- or lower-case.
+
+     dwStartSector
+        First sector to read.
+
+     wSectors
+        Number of sectors to read.
+
+     lpBuffer
+        Buffer to contain sector data. Must be large enough to
+        accommodate all sectors being read. Since this buffer is
+        provided by the calling Win32 application, no more than
+        the first 64K bytes will be used.
+
+  Return Value
+     Returns TRUE if successful, or FALSE if an error occurred
+     in reading or if a parameter was invalid.
+-------------------------------------------------------------------*/ 
+
+BOOL FAR PASCAL __export ReadCDRomSectors (BYTE   bDrive,
+                                           DWORD  dwStartSector,
+                                           WORD   wSectors,
+                                           LPBYTE lpBuffer)
+{
+   BOOL   fResult;
+   DWORD  cbOffset;
+   DWORD  i;
+   DWORD  gdaBuffer;     // Return value of GlobalDosAlloc().
+   LPBYTE RMlpBuffer;    // Real-mode buffer pointer
+   LPBYTE PMlpBuffer;    // Protected-mode buffer pointer
+
+
+   // Convert drive letter into drive number for MSCDEX call.
+   bDrive = toupper(bDrive) - 'A';
+
+   /*
+      Validate parameters:
+         bDrive must be between 0 and 25, inclusive.
+         lpBuffer must not be NULL.
+         wSectors must be between 1 and the maximum number of
+            sectors that can fit into a 64K buffer, inclusive.
+   */ 
+   if (bDrive &gt; 25 || !lpBuffer)
+      return FALSE;
+
+   if (!wSectors || (wSectors &gt; MAX_CD_SECTORS_TO_READ))
+      return FALSE;
+
+   /*
+      Allocate buffer for MSCDEX call. This buffer must be below 1MB
+      because the MSCDEX function will be called using DPMI. Like real-
+      mode MSCDEX.EXE, CDFS implements the MSCDEX API as V86-mode
+      Interrupt 2Fh functions.
+
+      Free memory below 1MB is relatively scarce, so allocating a
+      small sector buffer increases the chances that it can be
+      allocated no matter how many other applications and MS-DOS
+      device drivers are running. Also, a small sector buffer leaves
+      more memory for other applications to use.
+   */ 
+   gdaBuffer = GlobalDosAlloc (CD_SECTOR_SIZE);
+
+   if (!gdaBuffer)
+      return FALSE;
+
+   RMlpBuffer = (LPBYTE)MAKELONG(0, HIWORD(gdaBuffer));
+   PMlpBuffer = (LPBYTE)MAKELONG(0, LOWORD(gdaBuffer));
+
+   // Call MSCDEX to read each sector.
+   for (i = cbOffset = 0;
+        i &lt; wSectors;
+        i++, cbOffset += CD_SECTOR_SIZE)
+      {
+      if (fResult = MSCDEX_ReadSector (bDrive,
+                                       dwStartSector + i,
+                                       RMlpBuffer))
+         _fmemcpy (lpBuffer + cbOffset, PMlpBuffer, CD_SECTOR_SIZE);
+      else
+         break;
+      }
+
+   GlobalDosFree (LOWORD(gdaBuffer));
+
+   return (fResult);
+}
+
+/*-------------------------------------------------------------------
+  MSCDEX_ReadSector()
+
+  Calls MSCDEX to read a single sector from a CD-ROM compact disc.
+
+  Parameters:
+
+     bDrive
+        Drive number of CD-ROM drive to read from. Expected to be
+        a number in the following series: 0 = A, 1 = B, 2 = C, etc.
+
+     dwStartSector
+        First sector of read.
+
+     RMlpBuffer
+        Real-mode segment:offset pointer to a buffer that will receive
+        sector data. Must be large enough to accommodate a single
+        sector in cooked mode.
+
+  Return Value
+     Returns TRUE if successful, or FALSE if an error occurred in
+     reading.
+-------------------------------------------------------------------*/ 
+
+BOOL FAR PASCAL MSCDEX_ReadSector (BYTE   bDrive,
+                                   DWORD  dwStartSector,
+                                   LPBYTE RMlpBuffer)
+{
+   RMCS   callStruct;
+   BOOL   fResult;
+
+   /*
+      Prepare DPMI Simulate Real Mode Interrupt call structure with
+      the register values used to make the MSCDEX Absolute read call.
+      Then, call MSCDEX using DPMI and check for errors in both the DPMI
+      call and the MSCDEX call.
+   */ 
+   BuildRMCS (&amp;callStruct);
+   callStruct.eax = 0x1508;                 // MSCDEX Absolute read
+   callStruct.ebx = LOWORD(RMlpBuffer);     // Offset of sect buffer
+   callStruct.es  = HIWORD(RMlpBuffer);     // Segment of sect buffer
+   callStruct.ecx = bDrive;                 // 0=A, 1=B, 2=C, etc.
+   callStruct.edx = 1;                      // Read one sector
+   callStruct.esi = HIWORD(dwStartSector);
+   callStruct.edi = LOWORD(dwStartSector);
+
+   if (fResult = SimulateRM_Int (0x2F, &amp;callStruct))
+      fResult = !(callStruct.wFlags &amp; CARRY_FLAG);
+
+   return fResult;
+}
+
+/*-------------------------------------------------------------------
+  SimulateRM_Int()
+
+  Allows protected-mode software to execute real-mode interrupts
+  such as calls to MS-DOS, MS-DOS TSRs, MS-DOS device drivers.
+
+  This function implements the "Simulate Real Mode Interrupt"
+  function of the DPMI specification v0.9 and later.
+
+  Parameters:
+
+     bIntNum
+        Number of the interrupt to simulate.
+
+     lpCallStruct
+        Call structure that contains params (register values)
+        for bIntNum.
+
+  Return Value
+     SimulateRM_Int returns TRUE if it succeeded or FALSE if
+     it failed.
+
+  Comments
+     lpCallStruct is a protected-mode selector:offset address, not
+     a real-mode segment:offset address.
+-------------------------------------------------------------------*/ 
+
+BOOL FAR PASCAL SimulateRM_Int (BYTE bIntNum, LPRMCS lpCallStruct)
+{
+   BOOL fRetVal = FALSE;        // Assume failure
+
+   _asm {
+         push di
+         mov  ax, 0300h         ; DPMI Simulate Real Mode Interrupt
+         mov  bl, bIntNum       ; Number of the interrupt to simulate
+         mov  bh, 01h           ; Bit 0 = 1; all other bits must be 0
+         xor  cx, cx            ; No words to copy from PM to RM stack
+         les  di, lpCallStruct  ; Real mode call structure
+         int  31h               ; Call DPMI
+         jc   END1              ; CF set if error occurred
+
+         mov  fRetVal, TRUE
+     END1:
+         pop di
+        }
+   return (fRetVal);
+}
+
+/*-------------------------------------------------------------------
+   BuildRMCS()
+
+   Initializes a real-mode call structure by zeroing all its members.
+
+   Parameters:
+
+      lpCallStruct
+         Points to a real-mode call structure
+
+   Return Value
+         None.
+
+   Comments
+         lpCallStruct is a protected-mode selector:offset address,
+         not a real-mode segment:offset address.
+-------------------------------------------------------------------*/ 
+
+void FAR PASCAL BuildRMCS (LPRMCS lpCallStruct)
+   {
+   _fmemset (lpCallStruct, 0, sizeof(RMCS));
+   }
+				</pre></div></div><div class="topOfPage"><a href="#top"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/uparrow.gif" alt="">Back to the top</a></div></div><h2 class="subTitle" id="tocHeadRef"><div class="kb_tabs_toggle kb_tabs_toggle_open"></div><span><a href="javascript:void(0);">REFERENCES</a></span><div class="sectionpreview_closed">DOS Protected Mode Interface Specification Version 0.9. Programmer's Guide to W...</div></h2><script type="text/javascript">
+                            loadTOCNode(1, 'references');
+                        </script><div style="margin-left: 195px;" class="sbody">
+DOS Protected Mode Interface Specification Version 0.9.<br>
+Programmer's Guide to Windows 95.<br>
+Win32 SDK Online Documentation.
+<div class="topOfPage"><a href="#top"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/uparrow.gif" alt="">Back to the top</a></div></div></div><div style="margin-left: 195px;" class="sbody norollup"><div class="appliesTo"><hr><a id="appliesto"></a><h5 style="cursor: pointer;"><a class="kb_appliesTo_toggle kb_appliesTo_toggle_closed" href="javascript:void(0);"></a>APPLIES TO</h5><ul style="display: none;"><li>Microsoft Win32 Application Programming Interface, when used with:</li><ul class="kb_subList"><li>Microsoft Windows 95</li><li>Microsoft Windows 98 Standard Edition</li><li>Microsoft Windows Millennium Edition</li><li>Microsoft Windows NT 4.0</li></ul></ul></div><div class="topOfPage"><a href="#top"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/uparrow.gif" alt="">Back to the top</a></div><div class="keywords"><table><tbody><tr><td class="header"><h5>Keywords:&nbsp;
+                            </h5></td><td class="text">kbapi kbcode kbkernbase KB137813</td></tr></tbody></table></div><div class="topOfPage"><a href="#top"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/uparrow.gif" alt="">Back to the top</a></div></div><!-- - -KB 3 end- - --></div></div><span class="bookmark"><a id="survey" name="survey">&nbsp;</a></span><div class="wp" id="fmsSurvey" style="display: block;"><div class="fms"><noscript><div class="SURVEYNOSCRIPT"></div></noscript><input id="surveyname" name="surveyname" value="" type="hidden"><input id="showpage" name="showpage" value="1" type="hidden"><div id="SURVEYSECTIONCONTAINER"><div id="SURVEYSECTION_132" class="SURVEYSECTION" style="display: block;" xmlns:sw="urn:schemas-microsoft-com/PSS/PSS_Survey01"><input name="id" value="132" type="hidden"><div name="CompoundingBranchRules" style="display:none;"></div><input name="NextSectionByTopicRef" value="0" type="hidden"><div style="display: block;" id="SURVEYQUESTION_12616" class="QUESTIONCONTAINER"><input name="id" value="12616" type="hidden"><input name="type" value="CHOICE" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT">Was this information helpful?</div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div><input name="randomization" value="" type="hidden"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1261612616" id="125" value="0" type="radio"></td><td class="ANSWERTEXT">Yes</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1261612616" id="126" value="1" type="radio"></td><td class="ANSWERTEXT">No</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1261612616" id="18874" value="2" type="radio"></td><td class="ANSWERTEXT">Somewhat</td></tr></tbody></table></td></tr></tbody></table></div><div style="display: block;" id="SURVEYQUESTION_10576" class="QUESTIONCONTAINER"><input name="id" value="10576" type="hidden"><input name="type" value="CHOICE" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT">How much effort did you personally put forth to use this article?</div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div><input name="randomization" value="" type="hidden"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1057610576" id="16305" value="1" type="radio"></td><td class="ANSWERTEXT">Very low</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1057610576" id="16306" value="2" type="radio"></td><td class="ANSWERTEXT">Low</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1057610576" id="16307" value="3" type="radio"></td><td class="ANSWERTEXT">Moderate</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1057610576" id="16308" value="4" type="radio"></td><td class="ANSWERTEXT">High</td></tr></tbody></table></td></tr><tr style="display: table-row;"><td style="display: table-cell;" valign="top"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="CHOICEROW" valign="top"><input name="QUESTION_132_1057610576" id="16309" value="5" type="radio"></td><td class="ANSWERTEXT">Very high</td></tr></tbody></table></td></tr></tbody></table></div><div style="display: block;" id="SURVEYQUESTION_12617" class="QUESTIONCONTAINER"><input name="id" value="12617" type="hidden"><input name="type" value="TEXT-BLOCK" type="hidden"><input name="required" value="0" type="hidden"><div class="QUESTIONTEXT">Tell us why and what can we do to improve this information</div><div class="QUESTIONINSTRUCTION"></div><div class="QUESTIONREQUIRED"></div><textarea class="ANSWERBOX" name="TEXTBLOCK_12617" rows="12" cols="80" onpaste="enforceMaxLength(this,1024,event)" onkeydown="enforceMaxLength(this,1024,event)"></textarea></div><div class="NAVIGATION"><table class="NAVBUTTONCONTAINER"><tbody><tr><td class="PADDINGCELL"></td><td class="NAVBUTTONCELL"><input class="NAVBUTTON" value="Submit" onclick="kbSurvey.next();this.blur();" type="button"></td><td class="ENDPADDINGCELL"></td></tr></tbody></table></div></div><div id="DIV_CLOSE" style="display:none" xmlns:sw="urn:schemas-microsoft-com/PSS/PSS_Survey01"><div class="SURVEYTHANKYOUCONTAINER"><div class="SURVEYINTROTEXT">Thank you! Your feedback is used to help us improve our support content. For more assistance options, please visit the <a href="http://support.microsoft.com/">Help and Support Home Page</a>.</div></div><div class="NAVIGATION"><table class="NAVBUTTONCONTAINER" nowrap="yes"><tbody><tr><td class="PADDINGCELL"></td><td class="NAVBUTTONCELL"></td><td class="ENDPADDINGCELL"></td></tr></tbody></table></div></div></div></div></div><script type="text/javascript">
+			var kbSurvey = new MS.Support.Fms.Survey("fmsSurvey");
+			kbSurvey.isKBEmbedded = true;
+			kbSurvey.addSubmitField('REGIONID', 'en-us');
+			kbSurvey.addSubmitField('SITE', 'gn');
+			kbSurvey.addSubmitField('SURVEYSCID', 'sw;en;1809');
+			kbSurvey.addSubmitField('SURVEYID', '1809');
+			kbSurvey.addSubmitField('SURVEYNAME', '');
+			kbSurvey.addSubmitField('BROWSERLANGCODE', 'en-us,en\x3bq\x3d0.5');
+			kbSurvey.addSubmitField('SURVEYLANGCODE', 'en');
+			kbSurvey.addSubmitField('FMSURL', '%252fdefault.aspx%252fkb%252f137813%252fEN-US');
+			kbSurvey.parameters = ['kb','en-us','137813','','','','','','',''];
+			kbSurvey.maxKBsInCookie = '10';
+			kbSurvey.kbvisited = '';
+		</script><div class="SocialMedia"><table style="display: inline-block;" class="SocialMedia_out"><tbody><tr><td class="smlist"><a href="mailto:?subject=How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095&amp;body=http%3a%2f%2fsupport.microsoft.com%2fkb%2f137813%2fEN-US" id="EmailPage" title="E-mail this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="E-mail this page" class="gsfx_img_png" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/email_20x.png"></a></td><td class="smlist"><a href="http://support.microsoft.com/gp/noscript" id="PrintPage" title="Print this page" onclick="return MS_HandleClick(this,'SupportTools', true);"><img alt="Print this page" class="gsfx_img_png" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/printer_20x.png"></a></td><td class="smlist"><a title="Share with Messenger" rel="nofollow" href="javascript:AddtoSocialMedia('Live','smcsocialbookmark_footer','http://profile.live.com/badge/?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/SharingBadge16x16White.png" alt="Share with Messenger"></a></td><td class="smlist"><a title="Share on Facebook" rel="nofollow" href="javascript:AddtoSocialMedia('Facebook','smcsocialbookmark_footer','http://www.facebook.com/share.php?u=','');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/facebook_16.png" alt="Share on Facebook"></a></td><td class="smlist"><a title="Share on Twitter" rel="nofollow" href="javascript:AddtoSocialMedia('Twitter','smcsocialbookmark_footer','http://twitter.com/share/?url=','&amp;text=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/twitter_16.png" alt="Share on Twitter"></a></td><td name="gss_socialmedia" class="gss_socialmedia"><div style="position:relative"><a class="SM_Collapse" href="javascript:void(0);" onclick="SMCollapseExpand(this)"></a><div class="SMdetail" name="gss_SocialMedia_detail" style="display:none;"><div class="SMdetail_inner"><div class="smrow"><div><a title="Share on Linkedin" rel="nofollow" href="javascript:AddtoSocialMedia('linkedin','smcsocialbookmark_footer','http://www.linkedin.com/shareArticle?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/linkedin_16.png" alt="Share on Linkedin"><span>Linkedin</span></a></div><div><a title="Share on Digg it" rel="nofollow" href="javascript:AddtoSocialMedia('diggit','smcsocialbookmark_footer','http://digg.com/submit?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/digg_alt_16.png" alt="Share on Digg it"><span>Digg it</span></a></div></div><div class="smrow"><div><a title="Share on Yahoo" rel="nofollow" href="javascript:AddtoSocialMedia('Yahoo','smcsocialbookmark_footer','http://bookmarks.yahoo.com/toolbar/savebm?u=','&amp;t=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/yahoo_16.png" alt="Share on Yahoo"><span>Yahoo</span></a></div><div><a title="Share on Delicious" rel="nofollow" href="javascript:AddtoSocialMedia('delicious','smcsocialbookmark_footer','http://www.delicious.com/save?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/delicious_16.png" alt="Share on Delicious"><span>Delici..</span></a></div></div><div class="smrow"><div><a title="Share on StumbleUpon" rel="nofollow" href="javascript:AddtoSocialMedia('StumbleUpon','smcsocialbookmark_footer','http://www.stumbleupon.com/submit?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/stumbleupon_16.png" alt="Share on StumbleUpon"><span>Stumbl..</span></a></div><div><a title="Share on Yammer" rel="nofollow" href="javascript:AddtoSocialMedia('yammer','smcsocialbookmark_footer','https://www.yammer.com/home/bookmarklet?v=1&amp;u=','&amp;t=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/yammer_16.png" alt="Share on Yammer"><span>Yammer</span></a></div></div><div class="smrow"><div><a title="Share on Reddit" rel="nofollow" href="javascript:AddtoSocialMedia('Reddit','smcsocialbookmark_footer','http://www.reddit.com/submit?url=','&amp;title=');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/reddit_16.png" alt="Share on Reddit"><span>Reddit</span></a></div><div><a title="Share on Technorati" rel="nofollow" href="javascript:AddtoSocialMedia('technorati','smcsocialbookmark_footer','http://technorati.com/faves?add=','');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/technorati_16.png" alt="Share on Technorati"><span>Techno..</span></a></div></div><div class="smrow"><div><a title="Share on FriendFeed" rel="nofollow" href="javascript:AddtoSocialMedia('FriendFeed','smcsocialbookmark_footer','http://friendfeed.com/share?url=','');"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/friendfeed_16.png" alt="Share on FriendFeed"><span>Friend..</span></a></div></div></div></div></div></td></tr></tbody></table></div></div></td><td class="primaryThinColumn gss_rightnav_withshadow"><div id="thinColumn" style="float: none;"><div id="MiniRouter"><span class="Mtitle">Other Resources</span><h3><span class="subtit">Other Support Sites</span><div class="MR_down"></div></h3><ul style="display: none;" id="OSS_MR"><li><a href="http://support.microsoft.com/select/?target=hub" id="L_206797">Solution Centers</a></li><li><a href="http://support.microsoft.com/fixit" id="L_206798">Microsoft Fix It Solutions</a></li><li><a href="http://windows.microsoft.com/en-US/help" id="L_206799">Windows Help and How-to</a></li><li><a href="http://office.microsoft.com/" id="L_206800">Office Online</a></li><li><a href="https://partner.microsoft.com/" id="L_206801">Microsoft Partner Network</a></li></ul><h3><span class="subtit">Community</span><div class="MR_down"></div></h3><ul style="display: none;" id="Community_MR"><li><a href="http://answers.microsoft.com/" id="L_206802">Answers Forums</a></li><li><a href="http://social.technet.microsoft.com/Forums" id="L_206803">Technet Forums</a></li><li><a href="http://social.msdn.microsoft.com/Forums" id="L_206804">Microsoft Developer Network (MSDN)</a></li></ul><h3><span class="subtit">Get Help Now</span><div class="MR_down"></div></h3><div style="display: none;" class="gethelp" id="GetHelp_MR"><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;137813" id="L_206805" class="imglink"><img alt="" class="gsfx_img_png" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/help_icon_48x48.png"></a><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;137813" id="L_206805" class="txtlink">Contact a Support Professional by Email, Online, or Phone</a><div class="clearBoth"></div></div><div class="space"></div></div><div class="wp articleTrans"><h3 style="background: none repeat scroll 0% 0% transparent;"><span class="MRlinkCon">Article Translations</span></h3></div><div id="ArticleTranslations"><div onclick="DisplayATList()" class="ATtext"><span><a href="http://support.microsoft.com/kb/137813/ar" onclick="ATClick('29803',this)" title="(الشرق الاوسط (العربية">(الشرق الاوسط (العربية</a></span><a style="background-image: url(&quot;/library/images/support/CN/kb_dropdown_icon.png&quot;);" href="javascript:void(0)"></a></div><div style="display: none; position: absolute;" id="ATList" name="scid"><ul><li><a href="http://support.microsoft.com/kb/137813/pt-br" onclick="ATClick('29803',this)" title="Brasil (Português)">Brasil (Português)</a></li><li><a href="http://support.microsoft.com/kb/137813/cs" onclick="ATClick('29803',this)" title="Česká republika (Čeština)">Česká republika (Čeština)</a></li><li><a href="http://support.microsoft.com/kb/137813/de" onclick="ATClick('29803',this)" title="Deutschland (Deutsch)">Deutschland (Deutsch)</a></li><li><a href="http://support.microsoft.com/kb/137813/es" onclick="ATClick('29803',this)" title="España, Latinoamérica (Español)">España, Latinoamérica (Español)</a></li><li><a href="http://support.microsoft.com/kb/137813/fr" onclick="ATClick('29803',this)" title="France (Français)">France (Français)</a></li><li><a href="http://support.microsoft.com/kb/137813/it" onclick="ATClick('29803',this)" title="Italia (Italiano)">Italia (Italiano)</a></li><li><a href="http://support.microsoft.com/kb/137813/pt" onclick="ATClick('29803',this)" title="Portugal (Português)">Portugal (Português)</a></li><li><a href="http://support.microsoft.com/kb/137813/tr" onclick="ATClick('29803',this)" title="Türkiye (Türkçe)">Türkiye (Türkçe)</a></li><li><a href="http://support.microsoft.com/kb/137813/ko" onclick="ATClick('29803',this)" title="대한민국 (한국어)">대한민국 (한국어)</a></li><li><a href="http://support.microsoft.com/kb/137813/zh-cn" onclick="ATClick('29803',this)" title="中国 (简体中文)">中国 (简体中文)</a></li><li><a href="http://support.microsoft.com/kb/137813/zh-tw" onclick="ATClick('29803',this)" title="台灣 (繁體中文)">台灣 (繁體中文)</a></li><li><a href="http://support.microsoft.com/kb/137813/ja" onclick="ATClick('29803',this)" title="日本 (日本語)">日本 (日本語)</a></li></ul></div></div><div id="gss_sticky_container_div"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/gss_sticky_panel_top.png" id="gss_stickyheader_img"><div id="gss_stickyinner_div"><div class="gss_stickywebpart_div" id="divRelContent" style="display: block;"><div class="gss_stickytitle_div"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/gss_sticky_panel_rc.png" class="gss_stickytitle_img"><span class="gss_stickytitle_span"><h6>View related content</h6></span></div><div class="wp" id="RelatedContent"><table class="LCT" cellspacing="0"><tbody><tr><td class="textColumn"><ul><li id="rc_0_tr"><span><a href="http://support.microsoft.com/kb/138434/en-us" id="rc_0" title="How Win32-Based Applications Read CD-ROM Sectors in Windows NT" onclick="return MS_HandleClick(this,'30001', true);">How Win32-Based Applications Read CD-ROM Sectors in Windows NT</a></span></li><li id="rc_1_tr"><span><a href="http://answers.microsoft.com/en-us/windows/forum/windows_xp-hardware/cd-drive-is-not-reading-any-music/22dd2537-f9f9-4a51-90e8-dd1489352bf9" id="rc_1" target="_blank" title="CD drive is not reading any music. - Microsoft Answers" onclick="return MS_HandleClick(this,'30001', true);">CD drive is not reading any music. - Microsoft Answers</a></span></li><li id="rc_2_tr"><span><a href="http://technet.microsoft.com/en-us/library/cc939084.aspx" id="rc_2" target="_blank" title="Running Nonnative Applications in Windows&nbsp;2000 Professional" onclick="return MS_HandleClick(this,'30001', true);">Running Nonnative Applications in Windows&nbsp;2000 Professional</a></span></li><li id="rc_3_tr"><span><a href="http://technet.microsoft.com/en-us/library/cc939064.aspx" id="rc_3" target="_blank" title="Running Nonnative Applications in Windows&nbsp;2000 Professional" onclick="return MS_HandleClick(this,'30001', true);">Running Nonnative Applications in Windows&nbsp;2000 Professional</a></span></li><li id="rc_4_tr"><span><a href="http://msdn.microsoft.com/en-us/library/ms744829.aspx" id="rc_4" target="_blank" title="Walkthrough: Hosting WPF Content in Win32" onclick="return MS_HandleClick(this,'30001', true);">Walkthrough: Hosting WPF Content in Win32</a></span></li></ul></td></tr></tbody></table></div></div><div class="gss_stickywebpart_div gss_stickywebpart_bottom_div" id="divRelTags" style="display: block;"><div class="gss_stickytitle_div"><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/gss_sticky_panel_rtags.png" class="gss_stickytitle_img"><span class="gss_stickytitle_span"><h6>Search related topics</h6></span></div><div class="wp" id="RelatedTags"><table class="LCT" cellspacing="0"><tbody><tr><td class="textColumn"><ul><li id="rt_0_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=Dos%20applications%20in%20win32&amp;catalog=LCID%3D1033" id="rt_0" title="Dos applications in win32" onclick="return MS_HandleClick(this,'30000', true);">Dos applications in win32</a></span></li><li id="rt_1_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=How%20to%20read%20absolute%20sector&amp;catalog=LCID%3D1033" id="rt_1" title="How to read absolute sector" onclick="return MS_HandleClick(this,'30000', true);">How to read absolute sector</a></span></li><li id="rt_2_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=Simulate%20real%20mode%20interrupt&amp;catalog=LCID%3D1033" id="rt_2" title="Simulate real mode interrupt" onclick="return MS_HandleClick(this,'30000', true);">Simulate real mode interrupt</a></span></li><li id="rt_3_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=Win32%20application%20programming%20interface&amp;catalog=LCID%3D1033" id="rt_3" title="Win32 application programming interface" onclick="return MS_HandleClick(this,'30000', true);">Win32 application programming interface</a></span></li><li id="rt_4_tr"><span><a href="http://support.microsoft.com/search/default.aspx?query=Win32%20mode&amp;catalog=LCID%3D1033" id="rt_4" title="Win32 mode" onclick="return MS_HandleClick(this,'30000', true);">Win32 mode</a></span></li></ul></td></tr></tbody></table></div></div><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/gss_sticky_panel_watermark.png" id="gss_stickywatermark_img"></div><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/gss_sticky_panel_footer.png" id="gss_stickyfooter_img"></div></div></td></tr></tbody></table></div></div><div id="bottomRow"><div class="wp getHelp"><table align="center" cellpadding="0" cellspacing="0"><tbody><tr><td class="image"><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;137813" id="L_174092"><img alt="" class="gsfx_img_png" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/help_icon_48x48.png"></a></td><td class="text"><h3>Get Help Now</h3><a href="http://support.microsoft.com/gethelp/default.aspx?content=kb;en-us;137813" id="L_174092">Contact a support professional by E-mail, Online, or Phone</a></td></tr></tbody></table></div></div><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/wtInit.js"></script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/wtCore.js"></script><noscript><img alt="" id="DCSIMG" width="1" height="1" src="http://m.webtrends.com/dcsxia05c00000s926v0z4tru_3w4l/njs.gif?dcsuri=/nojavascript&WT.js=No" /></noscript><noscript><img id="StatsDotNetImgNoScript" alt="" src="http://support.microsoft.com/LTS/default.aspx?SSID=1&#38;SiteLCID=1033&#38;SsVersion=GSS7.1&#38;SiteCulture=en-us&#38;ContentCulture=en-us&#38;In404Url=&#38;EventCollectionID=1&#38;URL=%2fdefault.aspx&#38;ContentType=kb&#38;ContentLCID=1033&#38;ContentID=137813&#38;Platform=windows%20nt%205.1&#38;BrandID=1&#38;flexValue2=32&#38;flexValue8=0&#38;ContentProperties=6%3d9%7c7%3d3.2%7c" /></noscript><img id="StatsDotNetImg" name="StatsDotNetImg" alt="" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/default.gif"><script type="text/javascript">StatsDotNet.disabled=false;StatsDotNet.enableCollTierParams=true;StatsDotNet.host='http\x3a\x2f\x2fsupport.microsoft.com\x2fLTS\x2fdefault.aspx';StatsDotNet.ssId='1';StatsDotNet.siteLcId='1033';StatsDotNet.SiteCulture='en-us';StatsDotNet.SsVersion='GSS7.1';StatsDotNet.url='\x2fdefault.aspx';StatsDotNet.ContentCulture ='en-us';StatsDotNet.contentType='kb';StatsDotNet.contentLn='1033';StatsDotNet.contentId='137813';StatsDotNet.platform='windows nt 5.1';StatsDotNet.eventCollectionId=1;StatsDotNet.siteBrandId='1';StatsDotNet.onUnloadTimeout=300;StatsDotNet.ltsIdleTimeout=5000;StatsDotNet.userAgentString='mozilla\x2f5.0 \x28windows nt 5.1\x3b rv\x3a6.0.2\x29 gecko\x2f20100101 firefox\x2f6.0.2';StatsDotNet.ContentProperties='6\x3d9\x7c7\x3d3.2\x7c';StatsDotNet.flexValue2='32';StatsDotNet.flexValue8='0';</script><script type="text/javascript"> var varWedcsEnable = true; this.generateWedcsData(); </script><script type="text/javascript">var enableSiteSurvey = true;function isDomainTracking(){var entry = MS.Support.Fms.CookieUtil.getCookie('fmshb');if (entry){try{return entry.split(',')[0] == '1' ? true : false;}catch (e){return false;}}return false;};window.setInterval(function(){MS.Support.Fms.CookieUtil.setSessionCookie('fmshb', (isDomainTracking() ? '1' : '0') + ',' + (new Date()).getTime());}, 1000);function fmsLastExp(){var visits = MS.Support.Fms.CookieUtil.getCookie('ST_GN_EN-US');var parts =  visits ? visits.split('_') : [];if (null == visits || parts.length != 3 || isNaN(parts[0])){return 0;}return parseInt(parts[2]);};function fmsSurveyExpired(days){var MiliDay = 86400000;var visits = MS.Support.Fms.CookieUtil.getCookie('ST_GN_EN-US');var parts = visits ? visits.split('_') : [];if (null == visits || parts.length != 3 || isNaN(parts[0])){return true;};var origDate = parseInt(parts[1]);var curDate = new Date();return (curDate.getTime()/MiliDay - days) >= origDate;};function activateSiteSurvey (){if(window.top == window && !isDomainTracking() && typeof(enableSiteSurvey) != "undefined" && enableSiteSurvey && fmsSurveyExpired(fmsLastExp())){document.write('<script language="javascript" src="/library/svy/broker.js"></scr'+'ipt>');}};activateSiteSurvey();</script><script language="javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/broker.js"></script><script language="JavaScript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/SiteRecruit_PageConfiguration_2944mt.js"></script><script type="text/javascript">function thisLoad(){SocialMediaInit();SocialMediaInit();makeAjaxCall('LoadRelatedContent','137813\x3ben-us');makeAjaxCall('LoadRelatedTags','137813\x3ben-us');KBFeedBackShowSurvey();StatsDotNet.LogPageOnLoad();CreateSearchOptions('acListWrappergsfx_bsrch_query', 326);InitCatLangSel();InitSrch();InitAC('gsfx_bsrch_query');$(document).ready(function() {gsfx_bsrch_InitCatSelection('gsfx_bsrch_query', '4:');});}function thisUnload(){}</script><script type="text/javascript">$(window).load(thisLoad);$(window).unload(thisUnload);</script><script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/store_link_modifier.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </div>
+            <div class="footer">
+                
+    
+
+<!-- link to css file-->
+
+<link rel="stylesheet" type="text/css" href="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/oneMscomFooter.css">
+
+
+
+<style type="text/css">.oneMscomFooter { color:#000;}.oneMscomFooter, .oneMscomFooter input {font-size:100%;}.oneMscomFooter, .oneMscomFooter select {font-family:Segoe UI,Arial,Verdana,Tahoma,sans-serif;}.oneMscomFooter ul li {border-right-color:black;}.oneMscomFooter .defaultLinks li a {color:black;}.oneMscomFooter .customLinks li a {color:black;}.oneMscomFooter .copyright {color:black;}.oneMscomFooter .subBrandLogo {float:left;}.oneMscomFooter .msLogo {float:right;padding-right: 15px;}.oneMscomFooter .altText {width:133px;padding-top:6px;padding-bottom:3px;}.oneMscomFooter .copyright {font-family:Segoe UI,Arial,Verdana,Tahoma,sans-serif;color:black;}.oneMscomFooter .links {float:right;margin-right: 6px;}.oneMscomFooter ul {float:right;}.oneMscomFooter ul li {border-right-color:black;font-family:Segoe UI,Arial,Verdana,Tahoma,sans-serif;}.oneMscomFooter .customLinks li a {color:black;}.oneMscomFooter .defaultLinks li a {color:black;}</style><div class="oneMscomComp oneMscomFooter" bi:type="oneMscomFooter" dir="ltr"><div class="subBrandLogo" bi:type="oneMscomSubBrandLogo"></div><div class="msLogo" bi:type="oneMscomMSLogo"><a href="http://www.microsoft.com/en/us/default.aspx"><span><img src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/Microsoft_logo_footer.gif" alt="Microsoft Homepage"></span></a><div class="copyright" bi:type="oneMscomCopyRight">©2011 Copyright</div></div><div class="links"><div class="links-inner" bi:type="oneMscomCustomLinks"><ul class="customLinks"><li><a href="javascript:window.open('http://mymfe.microsoft.com/support.microsoft.com/feedback.aspx?formid=24'%20+%20'&amp;UrlReferrer='%20%20+%20%20escape(document.referrer.toString()),%20'Feedback',%20'scrollbars=yes,menubar=no,titlebar=no,location=no,width=500,height=600,resizable=yes');void(0);" bi:downloadiekey="DownloadIEVal"><span>Feedback</span></a></li><li class="lastLink"><a href="http://support.microsoft.com/gp/csa" bi:key="Val"><span>Services Agreement</span></a></li></ul></div><div class="links-inner" bi:type="oneMscomDefaultLink"><ul class="defaultLinks"><li><a href="" bi:contactfromfooterxml="22"><span></span></a></li><li><a href="http://support.microsoft.com/contactus/?ws=support" bi:contactfromfooterxml="22"><span>Contact Us</span></a></li><li><a href="http://go.microsoft.com/?linkid=4412892" bi:key="Val"><span>Terms of Use</span></a></li><li><a href="http://go.microsoft.com/?linkid=4412893" bi:trademarks1="TrademarksVal1" bi:trademarks2="Trademarks2"><span>Trademarks</span></a></li><li class="lastLink"><a href="http://go.microsoft.com/?linkid=4412894" bi:key="Val"><span>Privacy Statement</span></a></li></ul></div></div></div>
+
+            </div>
+            <div class="cssClear">
+            </div>
+        </div>
+        <div class="stage-bg-top">
+        </div>
+        <div class="stage-bg-mid">
+        </div>
+        <div class="stage-bg-bot">
+        </div>
+    </div>
+    <div class="form-bottom">
+        <div class="form-bottom-inner">
+        </div>
+    </div>
+    
+    
+
+    <!--ADD WEBTRENDS SCRIPT-->
+    
+    <script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/webtrends_16.js"></script>
+    
+    <!--ADD WEDCS SCRIPT-->
+    <script type="text/javascript">
+        var varSegmentation = 1;
+        var varClickTracking = 1;
+        var varCustomerTracking = 1;
+        var varLoadTracking = 0;
+    </script>
+
+    <script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/wedcs.js"></script>
+    
+    <noscript>
+        <img alt="" width="1" height="1" src="http://c.microsoft.com/trans_pixel.aspx"/>
+    </noscript>
+
+    <!--ADD BIPROXY SCRIPT-->
+    
+    <script type="text/javascript" src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/biproxy.js"></script>
+
+<script type="text/javascript"> var biMapping={"Webtrends":{"enabled":true,"settings":{"interactiontype":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true}},"mapping":{"DCS.dcssip":[{"bi":"uridomain"}],"DCS.dcsuri":[{"bi":"uripath"}],"DCS.dcsqry":[{"bi":"uriquery"}],"WT.dl":[{"bi":"interactiontype"}],"WT.TriggerType":[{"bi":"triggertype"}],"WT.z_Initial":[{"bi":"initial"}],"WT.ti":[{"bi":"title"}],"WT.ParentTitleStructure":[{"bi":"parenttitlestructure"}],"WT.Type":[{"bi":"type"}],"WT.ParentTypeStructure":[{"bi":"parenttypestructure"}],"WT.Index":[{"bi":"index"}],"WT.ParentIndexStructure":[{"bi":"parentindexstructure"}],"WT.GridStructure":[{"bi":"gridstructure"}],"WT.SearchType":[{"bi":"searchtype"}],"WT.SearchQuery":[{"bi":"searchquery"}],"DCSext.wt_linkId":[{"bi":"linkid"}],"WT.z_locale":[{"bi":"locale"}],"WT.pa":[{"bi":"primaryaudience"}],"WT.z_ea_name":[{"bi":"endactionname"}],"WT.z_ea_actionoffer":[{"bi":"endactionoffer"}],"WT.z_ea_targetcampaign":[{"bi":"campaignguid"}],"DCSext.vp_evt":[{"bi":"vpevent"}],"DCSext.vp_uuid":[{"bi":"vpuuid"}],"WT.SurveyId":[{"bi":"surveyid"}],"WT.SurveyVersion":[{"bi":"surveyversion"}],"WT.SurveyQuestions":[{"bi":"surveyquestions"}],"WT.SurveyComments":[{"bi":"surveycomments"}]}},"Wedcs":{"enabled":true,"settings":{"interactiontype":{"0":true,"1":true,"2":true,"3":true,"4":true,"5":true,"6":true,"7":true,"8":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true}},"mapping":{"ms.UriDomain":[{"bi":"uridomain"}],"ms.UriPath":[{"bi":"uripath"}],"ms.UriQuery":[{"bi":"uriquery"}],"ms.InteractionType":[{"bi":"interactiontype"}],"ms.TriggerType":[{"bi":"triggertype"}],"ms.Initial":[{"bi":"initial"}],"ms.Title":[{"bi":"title"}],"ms.ParentTitleStructure":[{"bi":"parenttitlestructure"}],"ms.Type":[{"bi":"type"}],"ms.ParentTypeStructure":[{"bi":"parenttypestructure"}],"ms.Index":[{"bi":"index"}],"ms.ParentIndexStructure":[{"bi":"parentindexstructure"}],"ms.GridStructure":[{"bi":"gridstructure"}],"ms.SearchType":[{"bi":"searchtype"}],"ms.SearchQuery":[{"bi":"searchquery"}],"cot":[{"bi":"cot"}],"ms.linkid":[{"bi":"linkid"}],"ms.cpgnguid":[{"bi":"campaignguid"}],"ms.rioctc":[{"bi":"rioctc"}],"ms.z_locale":[{"bi":"locale"}],"ms.pa":[{"bi":"primaryaudience"}],"ms.serp.link_type":[{"bi":"serplinktype"}],"ms.serp.link_position":[{"bi":"serplinkposition"}],"ms.ea_offer":[{"bi":"endactionoffer"}],"ms.ea_action":[{"bi":"endaction"}],"ms.ea_name":[{"bi":"endactionname"}],"ms.vp_site":[{"bi":"vpsite"}],"ms.vp_evt":[{"bi":"vpevent"}],"ms.vp_duration":[{"bi":"vpduration"}],"ms.vp_channel":[{"bi":"vpchannel"}],"ms.vp_uuid":[{"bi":"vpuuid"}],"ms.vp_origin":[{"bi":"vporigin"}],"ms.vp_pos":[{"bi":"vpposition"}],"ms.Order_ID":[{"bi":"orderid"}],"ms.Order_Revenue":[{"bi":"orderrevenue"}],"ms.Currency":[{"bi":"currency"}],"ms.MS_Sales_Part_Number":[{"bi":"msssalespartnumber"}],"ms.MS_Sales_Part_Quantity":[{"bi":"mssalespartquantity"}],"ms.dwntype":[{"bi":"downloadtype"}],"ms.ActiveDwellTime":[{"bi":"activedwelltime"}],"ms.SurveyId":[{"bi":"surveyid"}],"ms.SurveyVersion":[{"bi":"surveyversion"}],"ms.SurveyQuestions":[{"bi":"surveyquestions"}],"ms.SurveyComments":[{"bi":"surveycomments"}]}}};</script>
+<script type="text/javascript"> if (typeof $ != "undefined" && typeof MSCOM != "undefined" && typeof MSCOM.BI != "undefined") { MSCOM.BI.init(biMapping); if (typeof MSCOM.BI.WebTrends != "undefined") {MSCOM.BI.WebTrends.dcsid = "00000000000000"; MSCOM.BI.WebTrends.dcsGetId(); } } </script>
+
+
+
+<script src="How%20Win32%20Applications%20Can%20Read%20CD-ROM%20Sectors%20in%20Windows%2095_files/gsfxsurvey.js" type="text/javascript"></script></body></html>
